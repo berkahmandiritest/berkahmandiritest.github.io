@@ -1,0 +1,1694 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arang Batok Kelapa Premium — Berkah Mandiri</title>
+<link rel="icon" href="../img/assets/bm-logo.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+
+/* ══════════════════════════════════════════════
+   DESIGN TOKENS — identik dengan halaman utama
+   ══════════════════════════════════════════════ */
+:root {
+  --g950: #0b1512;
+  --g900: #111e19;
+  --g800: #182820;
+  --g700: #233d2f;
+  --g500: #c8d8c8;
+  --g400: #e0ede0;
+  --g300: #f3faf3;
+  --g200: #f7fcf7;
+  --g100: #eef4f0;
+  --ivory:     #f9f7f2;
+  --ivory-2:   #f0ece3;
+  --ivory-3:   #e4ddd0;
+  --brass:     #9a7c3a;
+  --brass-lt:  #b8963f;
+  --brass-dim: rgba(154,124,58,.12);
+  --brass-bdr: rgba(154,124,58,.2);
+  --white:     #ffffff;
+  --body-txt:  #3d5449;
+  --ease:      cubic-bezier(.25,.46,.45,.94);
+  --r-sm: 6px; --r-md: 10px; --r-lg: 16px; --r-xl: 24px;
+  /* Arang accent colors */
+  --red:    #c0392b;
+  --red-lt: #e74c3c;
+  --red-dim: rgba(192,57,43,.12);
+  --red-bdr: rgba(192,57,43,.25);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  background: var(--g950);
+  color: var(--white);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; }
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--g950); }
+::-webkit-scrollbar-thumb { background: var(--g700); border-radius: 99px; }
+
+/* ══════════════════════════════════════════════
+   NAVBAR
+   ══════════════════════════════════════════════ */
+#navbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 48px; height: 68px;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  transition: background .35s var(--ease), border-color .35s, box-shadow .35s;
+}
+#navbar.scrolled {
+  background: rgba(11,21,18,.94);
+  backdrop-filter: blur(20px) saturate(180%);
+  border-color: rgba(255,255,255,.06);
+  box-shadow: 0 1px 0 rgba(255,255,255,.04), 0 8px 32px rgba(0,0,0,.35);
+}
+
+#nav-menu { display: flex; align-items: center; gap: 8px; }
+#nav-menu .mobile-nav-cta { display: none; }
+
+.nav-logo { display: flex; align-items: center; gap: 12px; cursor: pointer; }
+.nav-logo-mark {
+  width: 36px; height: 36px;
+  border: 1px solid var(--brass-bdr);
+  border-radius: var(--r-sm);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 16px; font-weight: 600;
+  color: var(--brass-lt);
+  background: rgba(154,124,58,.06);
+  flex-shrink: 0;
+}
+.nav-logo-text { display: flex; flex-direction: column; gap: 1px; }
+.nav-logo-text strong {
+  font-size: 13.5px; font-weight: 600; letter-spacing: .04em;
+  color: var(--g100); line-height: 1;
+}
+.nav-logo-text span {
+  font-size: 11px; font-weight: 400; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--g500); line-height: 1;
+}
+
+#nav-menu ul { display: flex; gap: 2px; list-style: none; }
+#nav-menu ul li a {
+  display: block; padding: 7px 13px;
+  font-size: 13.5px; font-weight: 500;
+  letter-spacing: .05em; text-transform: uppercase;
+  color: var(--g400); border-radius: var(--r-sm);
+  transition: color .2s, background .2s;
+}
+#nav-menu ul li a:hover { color: var(--g100); background: rgba(255,255,255,.05); }
+#nav-menu ul li a.active { color: var(--white); }
+
+.nav-cta {
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px 18px;
+  border: 1px solid var(--brass-bdr);
+  border-radius: var(--r-sm);
+  font-size: 13.5px; font-weight: 500;
+  letter-spacing: .05em; text-transform: uppercase;
+  color: var(--brass-lt);
+  transition: background .2s, border-color .2s;
+  flex-shrink: 0;
+}
+.nav-cta:hover { background: var(--brass-dim); border-color: var(--brass-lt); }
+.nav-cta svg { width: 14px; height: 14px; }
+
+.nav-hamburger {
+  display: none;
+  flex-direction: column; justify-content: center; gap: 4.5px;
+  width: 38px; height: 38px; padding: 9px;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: var(--r-sm);
+  cursor: pointer; z-index: 300; flex-shrink: 0;
+}
+.nav-hamburger span {
+  display: block; width: 100%; height: 1px;
+  background: var(--g300); border-radius: 1px;
+  transition: transform .3s var(--ease), opacity .3s;
+}
+.nav-hamburger.open span:nth-child(1) { transform: translateY(5.5px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-5.5px) rotate(-45deg); }
+
+/* ══════════════════════════════════════════════
+   BREADCRUMB
+   ══════════════════════════════════════════════ */
+.breadcrumb {
+  position: fixed; top: 68px; left: 0; right: 0; z-index: 190;
+  background: transparent;
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,.05);
+  padding: 10px 48px;
+  display: flex; align-items: center; gap: 8px;
+  font-size: 12px; color: var(--g500);
+  letter-spacing: .06em;
+}
+.breadcrumb.scrolled {
+  background: rgba(11,21,18,.88);
+}
+.breadcrumb a { color: var(--g400); transition: color .2s; }
+.breadcrumb a:hover { color: var(--brass-lt); }
+.breadcrumb-sep { color: rgba(255,255,255,.2); }
+.breadcrumb-current { color: var(--brass-lt); }
+
+/* ══════════════════════════════════════════════
+   HERO — PRODUK
+   ══════════════════════════════════════════════ */
+#hero-produk {
+  min-height: 88vh;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center;
+  padding: 148px 48px 80px;
+  position: relative; overflow: hidden;
+  background-image:
+    linear-gradient(rgba(11,21,18,.72), rgba(11,21,18,.72)),
+    url("../img/assets/home-arang-batok.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* ember glow */
+#hero-produk::before {
+  content: ''; position: absolute;
+  inset: 0; z-index: 0;
+  background:
+    radial-gradient(ellipse 60% 55% at 50% 40%, rgba(180,40,20,.18) 0%, transparent 70%),
+    radial-gradient(ellipse 80% 60% at 20% 80%, rgba(35,61,47,.3) 0%, transparent 60%);
+  pointer-events: none;
+}
+/* grid pattern */
+#hero-produk::after {
+  content: ''; position: absolute; inset: 0; z-index: 0;
+  background-image:
+    linear-gradient(rgba(168,196,180,.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(168,196,180,.018) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 30%, transparent 100%);
+  pointer-events: none;
+}
+
+.hero-prod-inner { position: relative; z-index: 2; max-width: 820px; }
+
+.hero-prod-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 6px 14px;
+  background: var(--red-dim);
+  border: 1px solid var(--red-bdr);
+  border-radius: 99px;
+  font-size: 11px; font-weight: 600;
+  letter-spacing: .16em; text-transform: uppercase;
+  color: #e07060;
+  margin-bottom: 24px;
+}
+.hero-prod-badge svg { width: 12px; height: 12px; fill: #e07060; }
+
+.hero-prod-overline {
+  display: inline-flex; align-items: center; gap: 10px; margin-bottom: 20px;
+}
+.hero-prod-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--brass-lt); }
+.hero-prod-overline span {
+  font-size: 12px; font-weight: 500;
+  letter-spacing: .18em; text-transform: uppercase;
+  color: var(--brass-lt);
+}
+
+.hero-prod-h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(42px, 6vw, 84px);
+  line-height: 1.02;
+  letter-spacing: -.025em;
+  color: var(--white);
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.hero-prod-h1 em { font-style: italic; color: var(--g300); display: block; }
+
+.hero-prod-sub {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(22px, 3vw, 34px);
+  font-style: italic;
+  color: var(--brass-lt);
+  margin-bottom: 28px;
+  letter-spacing: -.01em;
+}
+
+.hero-prod-desc {
+  font-size: 17px; font-weight: 300; line-height: 1.82;
+  color: rgba(255,255,255,.86);
+  max-width: 560px; margin: 0 auto 40px;
+}
+
+.hero-prod-actions {
+  display: flex; align-items: center; justify-content: center;
+  gap: 14px; flex-wrap: wrap;
+  margin-bottom: 72px;
+}
+
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 9px;
+  padding: 13px 28px;
+  background: var(--brass-lt); color: var(--g950);
+  border-radius: var(--r-sm);
+  font-size: 13px; font-weight: 600;
+  letter-spacing: .06em; text-transform: uppercase;
+  transition: opacity .2s, transform .2s;
+}
+.btn-primary:hover { opacity: .88; transform: translateY(-1px); }
+.btn-primary svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+.btn-ghost {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 13px 24px;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: var(--r-sm);
+  font-size: 13px; font-weight: 500;
+  letter-spacing: .06em; text-transform: uppercase;
+  color: var(--g300);
+  transition: border-color .2s, color .2s;
+}
+.btn-ghost:hover { border-color: rgba(255,255,255,.28); color: var(--white); }
+.btn-ghost svg { width: 14px; height: 14px; }
+
+/* Hero stats strip */
+.hero-prod-stats {
+  display: flex; justify-content: center; gap: 0;
+  border-top: 1px solid rgba(255,255,255,.06);
+  padding-top: 40px; width: 100%;
+}
+.stat-item { padding: 0 40px; border-right: 1px solid rgba(255,255,255,.06); }
+.stat-item:last-child { border-right: none; }
+.stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px; font-weight: 500;
+  color: var(--white); line-height: 1; letter-spacing: -.025em;
+}
+.stat-label {
+  font-size: 12px; font-weight: 400;
+  color: var(--g500); margin-top: 5px;
+  letter-spacing: .1em; text-transform: uppercase;
+}
+
+/* ══════════════════════════════════════════════
+   SECTION COMMON
+   ══════════════════════════════════════════════ */
+section { scroll-margin-top: 68px; }
+.section-wrap { max-width: 1160px; margin: 0 auto; padding: 96px 48px; }
+
+.section-label {
+  display: inline-flex; align-items: center; gap: 8px; margin-bottom: 16px;
+}
+.section-label-line { width: 20px; height: 1px; background: var(--brass-lt); }
+.section-label span {
+  font-size: 12px; font-weight: 500;
+  letter-spacing: .18em; text-transform: uppercase; color: var(--brass-lt);
+}
+.label-dark .section-label-line { background: var(--brass); }
+.label-dark .section-label span { color: var(--brass); }
+
+.section-h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(32px, 3.5vw, 48px);
+  font-weight: 500; line-height: 1.1;
+  letter-spacing: -.02em; margin-bottom: 18px;
+}
+.section-h2 em { font-style: italic; color: var(--g300); }
+.section-h2.on-light { color: var(--g950); }
+.section-h2.on-light em { color: var(--g700); }
+
+/* ══════════════════════════════════════════════
+   KEUNGGULAN (dark, 3-col)
+   ══════════════════════════════════════════════ */
+#keunggulan {
+  background: var(--g900);
+  position: relative; overflow: hidden;
+}
+#keunggulan::before {
+  content: ''; position: absolute;
+  top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.07), transparent);
+}
+
+.keunggulan-inner { text-align: center; max-width: 680px; margin: 0 auto 60px; }
+.keunggulan-inner .section-label { justify-content: center; }
+
+.keunggulan-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.05);
+  border-radius: var(--r-lg); overflow: hidden;
+  max-width: 900px; margin: 0 auto;
+}
+.keunggulan-card {
+  background: var(--g900); padding: 40px 32px;
+  text-align: center; transition: background .2s;
+}
+.keunggulan-card:hover { background: var(--g800); }
+
+.keung-icon {
+  width: 52px; height: 52px;
+  background: var(--red-dim);
+  border: 1px solid var(--red-bdr);
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 18px;
+}
+.keung-icon svg { width: 24px; height: 24px; fill: #e07060; }
+
+.keung-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px; font-weight: 500;
+  color: var(--white); margin-bottom: 8px; letter-spacing: -.01em;
+}
+.keung-desc { font-size: 14px; font-weight: 300; color: rgba(255,255,255,.82); line-height: 1.7; }
+
+/* ══════════════════════════════════════════════
+   DESKRIPSI + KEISTIMEWAAN (ivory)
+   ══════════════════════════════════════════════ */
+#deskripsi { background: var(--ivory); color: var(--g950); }
+
+.desk-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 80px; align-items: center;
+}
+
+.desk-left .section-h2 { margin-bottom: 20px; }
+.desk-body {
+  font-size: 16.5px; font-weight: 300; line-height: 1.85;
+  color: var(--body-txt); margin-bottom: 16px;
+}
+.desk-body strong { color: var(--red); font-weight: 600; }
+
+.desk-features {
+  display: flex; flex-direction: column; gap: 0;
+  margin-top: 36px;
+  border-top: 1px solid var(--ivory-3);
+}
+.desk-feature-item {
+  display: flex; align-items: center; gap: 14px;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--ivory-3);
+  transition: padding-left .2s;
+}
+.desk-feature-item:hover { padding-left: 4px; }
+.desk-feature-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--red); flex-shrink: 0; }
+.desk-feature-item span { font-size: 14.5px; font-weight: 400; color: var(--g700); }
+
+.desk-right { display: flex; flex-direction: column; gap: 12px; }
+
+.desk-card-big {
+  background: var(--g950);
+  border: 1px solid rgba(255,255,255,.06);
+  border-radius: var(--r-lg);
+  padding: 32px;
+  position: relative; overflow: hidden;
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+}
+.desk-card-big::before {
+  content: ''; position: absolute;
+  top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, var(--red), transparent);
+}
+.desk-card-big-icon {
+  width: 48px; height: 48px;
+  background: var(--red-dim);
+  border: 1px solid var(--red-bdr);
+  border-radius: var(--r-sm);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 16px;
+}
+.desk-card-big-icon svg { width: 22px; height: 22px; fill: #e07060; }
+.desk-card-big h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px; font-weight: 500;
+  color: var(--white); margin-bottom: 8px;
+}
+.desk-card-big p { font-size: 14px; color: rgba(255,255,255,.84); font-weight: 300; line-height: 1.7; }
+
+.desk-mini-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.desk-mini {
+  background: var(--ivory-2);
+  border: 1px solid var(--ivory-3);
+  border-radius: var(--r-md);
+  padding: 20px 18px;
+  transition: border-color .2s;
+}
+.desk-mini:hover { border-color: var(--ivory-3); background: var(--ivory-3); }
+.desk-mini-icon {
+  width: 34px; height: 34px;
+  background: rgba(154,124,58,.1);
+  border: 1px solid rgba(154,124,58,.15);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 12px;
+}
+.desk-mini-icon svg { width: 16px; height: 16px; stroke: var(--brass); fill: none; stroke-width: 2; }
+.desk-mini h4 { font-size: 14.5px; font-weight: 600; color: var(--g950); margin-bottom: 3px; }
+.desk-mini p { font-size: 13px; color: var(--body-txt); font-weight: 300; line-height: 1.5; }
+
+/* ══════════════════════════════════════════════
+   PROSES PRODUKSI (dark)
+   ══════════════════════════════════════════════ */
+#proses {
+  background: var(--g950);
+  position: relative; overflow: hidden;
+}
+#proses::before {
+  content: ''; position: absolute;
+  top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.06), transparent);
+}
+
+.proses-header { text-align: center; max-width: 640px; margin: 0 auto 64px; }
+.proses-header .section-label { justify-content: center; }
+.proses-header p {
+  font-size: 16px; font-weight: 300;
+  color: rgba(255,255,255,.8); line-height: 1.75;
+}
+.proses-sub {
+  display: flex; align-items: center; justify-content: center;
+  gap: 20px; flex-wrap: wrap;
+  margin-top: 16px;
+  font-size: 12px; font-weight: 500;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: var(--g500);
+}
+.proses-sub-sep { width: 4px; height: 4px; border-radius: 50%; background: var(--red); }
+
+.proses-steps {
+  display: grid; grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+  position: relative;
+}
+/* Connector line */
+.proses-steps::before {
+  content: ''; position: absolute;
+  top: 68px; left: 10%; right: 10%; height: 2px;
+  background: linear-gradient(90deg, var(--red-dim), rgba(192,57,43,.4), var(--red-dim));
+  z-index: 0;
+}
+
+.proses-step {
+  display: flex; flex-direction: column; align-items: center;
+  text-align: center; padding: 0 12px;
+  position: relative; z-index: 1;
+}
+
+.proses-step-num {
+  width: 52px; height: 52px;
+  background: var(--g800);
+  border: 2px solid var(--red);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 20px; font-weight: 500;
+  color: var(--red-lt);
+  margin-bottom: 16px;
+  position: relative; z-index: 2;
+  transition: background .25s, border-color .25s;
+}
+.proses-step:hover .proses-step-num { background: var(--red-dim); border-color: var(--red-lt); }
+
+.proses-step-img {
+  width: 100%; aspect-ratio: 1;
+  border-radius: var(--r-md);
+  overflow: hidden;
+  margin-bottom: 20px;
+  border: 1px solid rgba(255,255,255,.06);
+  background: var(--g800);
+  display: flex; align-items: center; justify-content: center;
+}
+.proses-step-img svg { width: 48px; height: 48px; opacity: .35; }
+
+.proses-step-title {
+  font-size: 12.5px; font-weight: 600;
+  letter-spacing: .08em; text-transform: uppercase;
+  color: var(--white); margin-bottom: 8px;
+}
+.proses-step-desc {
+  font-size: 13px; font-weight: 300;
+  color: rgba(255,255,255,.72); line-height: 1.65;
+}
+
+/* ══════════════════════════════════════════════
+   KEGUNAAN / COCOK UNTUK (ivory)
+   ══════════════════════════════════════════════ */
+#kegunaan { background: var(--ivory); color: var(--g950); }
+
+.kegunaan-header {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  margin-bottom: 48px; gap: 40px;
+}
+.kegunaan-header-left { flex: 1; }
+.kegunaan-header-right {
+  font-size: 15.5px; font-weight: 300; color: var(--body-txt);
+  line-height: 1.75; max-width: 300px; flex-shrink: 0;
+}
+
+.kegunaan-grid {
+  display: grid; grid-template-columns: repeat(5, 1fr);
+  gap: 1px;
+  background: var(--ivory-3);
+  border: 1px solid var(--ivory-3);
+  border-radius: var(--r-xl); overflow: hidden;
+}
+.kegunaan-card {
+  background: var(--ivory);
+  padding: 36px 20px 32px;
+  text-align: center;
+  display: flex; flex-direction: column; align-items: center;
+  transition: background .25s;
+  position: relative;
+}
+.kegunaan-card::before {
+  content: ''; position: absolute;
+  top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, var(--red), transparent);
+  opacity: 0; transition: opacity .25s;
+}
+.kegunaan-card:hover { background: var(--ivory-2); }
+.kegunaan-card:hover::before { opacity: 1; }
+
+.kegunaan-icon {
+  width: 56px; height: 56px;
+  background: rgba(192,57,43,.06);
+  border: 1px solid rgba(192,57,43,.12);
+  border-radius: var(--r-md);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 16px;
+}
+.kegunaan-icon svg { width: 26px; height: 26px; stroke: var(--red); fill: none; stroke-width: 1.6; }
+.kegunaan-title {
+  font-size: 13px; font-weight: 600;
+  color: var(--g950); letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+/* ══════════════════════════════════════════════
+   SPESIFIKASI (dark)
+   ══════════════════════════════════════════════ */
+#spesifikasi {
+  background: var(--g900);
+  position: relative;
+}
+#spesifikasi::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.07), transparent);
+}
+
+.spec-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 80px; align-items: start;
+}
+.spec-left .section-h2 { margin-bottom: 28px; }
+.spec-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid rgba(255,255,255,.06);
+  border-radius: var(--r-lg); overflow: hidden;
+}
+.spec-table tr { border-bottom: 1px solid rgba(255,255,255,.04); }
+.spec-table tr:last-child { border-bottom: none; }
+.spec-table tr:hover td { background: rgba(255,255,255,.025); }
+.spec-table td {
+  padding: 14px 20px; font-size: 14.5px;
+  transition: background .2s;
+}
+.spec-table td:first-child {
+  font-weight: 500; color: var(--g400);
+  width: 45%;
+  border-right: 1px solid rgba(255,255,255,.04);
+}
+.spec-table td:last-child { font-weight: 300; color: rgba(255,255,255,.82); }
+.spec-table tr:nth-child(odd) td { background: rgba(255,255,255,.015); }
+
+.spec-right { display: flex; flex-direction: column; gap: 20px; }
+.spec-badge-wrap {
+  background: var(--g800);
+  border: 1px solid rgba(255,255,255,.06);
+  border-radius: var(--r-lg);
+  padding: 32px;
+  position: relative; overflow: hidden;
+}
+.spec-badge-wrap::before {
+  content: ''; position: absolute;
+  top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, var(--brass-lt), transparent);
+}
+.spec-badge-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px; font-weight: 500; color: var(--white);
+  margin-bottom: 20px;
+}
+.spec-badges {
+  display: flex; flex-wrap: wrap; gap: 10px;
+}
+.spec-badge {
+  display: flex; align-items: center; gap: 7px;
+  padding: 7px 14px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 99px;
+  font-size: 13px; font-weight: 400; color: var(--g300);
+}
+.spec-badge svg { width: 13px; height: 13px; stroke: var(--brass-lt); fill: none; stroke-width: 2; flex-shrink: 0; }
+
+.spec-cta-card {
+  background: var(--g800);
+  border: 1px solid rgba(255,255,255,.06);
+  border-radius: var(--r-lg);
+  padding: 28px 32px;
+  display: flex; align-items: center; justify-content: space-between; gap: 20px;
+}
+.spec-cta-text { font-size: 15px; font-weight: 400; color: rgba(255,255,255,.88); line-height: 1.5; }
+.spec-cta-text strong { display: block; font-weight: 600; color: var(--white); margin-bottom: 4px; }
+
+/* ══════════════════════════════════════════════
+   PRODUK LAIN (dark bottom strip)
+      ══════════════════════════════════════════════ */
+      #produk-lain {
+        background: var(--ivory);
+          color: var(--g950);
+          }
+
+          .produk-lain-header {
+            display: flex; align-items: flex-end; justify-content: space-between;
+              margin-bottom: 48px; gap: 40px;
+              }
+              .produk-lain-header-left { flex: 1; }
+              .produk-lain-back {
+                display: inline-flex; align-items: center; gap: 8px;
+                  padding: 10px 20px;
+                    border: 1px solid var(--ivory-3);
+                      border-radius: var(--r-sm);
+                        font-size: 13px; font-weight: 500;
+                          letter-spacing: .05em; text-transform: uppercase;
+                            color: var(--body-txt);
+                              transition: background .2s, border-color .2s;
+                                flex-shrink: 0;
+                                }
+                                .produk-lain-back:hover { background: var(--ivory-3); }
+                                .produk-lain-back svg { width: 14px; height: 14px; stroke: var(--body-txt); fill: none; stroke-width: 2; }
+
+                                .produk-lain-grid {
+                                  display: grid; grid-template-columns: repeat(5, 1fr);
+                                    gap: 1px;
+                                      background: var(--ivory-3);
+                                        border: 1px solid var(--ivory-3);
+                                          border-radius: var(--r-xl); overflow: hidden;
+                                          }
+                                          .produk-lain-card {
+                                            background: var(--ivory);
+                                              padding: 28px 22px 24px;
+                                                display: flex; flex-direction: column;
+                                                  position: relative;
+                                                    transition: background .25s;
+                                                      cursor: pointer;
+                                                        text-decoration: none; color: inherit;
+                                                        }
+                                                        .produk-lain-card:hover { background: var(--ivory-2); }
+                                                        .produk-lain-card:hover .plc-arrow { opacity: 1; transform: translateX(0); }
+                                                        .produk-lain-card::before {
+                                                          content: ''; position: absolute;
+                                                            top: 0; left: 0; right: 0; height: 2px;
+                                                              background: linear-gradient(90deg, var(--brass), transparent);
+                                                                opacity: 0; transition: opacity .25s;
+                                                                }
+                                                                .produk-lain-card:hover::before { opacity: 1; }
+
+                                                                .plc-img {
+                                                                  width: 100%; aspect-ratio: 1;
+                                                                    border-radius: var(--r-sm);
+                                                                      overflow: hidden;
+                                                                        margin-bottom: 16px;
+                                                                          background: rgba(154,124,58,.06);
+                                                                            border: 1px solid rgba(154,124,58,.12);
+                                                                              display: flex; align-items: center; justify-content: center;
+                                                                              }
+                                                                              .plc-img img { width: 100%; height: 100%; object-fit: cover; }
+                                                                              .plc-tag {
+                                                                                display: inline-block; margin-bottom: 8px;
+                                                                                  font-size: 10.5px; font-weight: 600;
+                                                                                    letter-spacing: .12em; text-transform: uppercase;
+                                                                                      color: var(--brass);
+                                                                                        background: rgba(154,124,58,.08);
+                                                                                          padding: 3px 8px; border-radius: 99px;
+                                                                                          }
+                                                                                          .plc-title {
+                                                                                            font-family: 'Playfair Display', serif;
+                                                                                              font-size: 18px; font-weight: 500;
+                                                                                                color: var(--g950); line-height: 1.15;
+                                                                                                  letter-spacing: -.015em; flex: 1; margin-bottom: 12px;
+                                                                                                  }
+                                                                                                  .plc-footer {
+                                                                                                    display: flex; align-items: center; justify-content: space-between;
+                                                                                                      padding-top: 12px;
+                                                                                                        border-top: 1px solid var(--ivory-3);
+                                                                                                        }
+                                                                                                        .plc-link-text {
+                                                                                                          font-size: 11px; font-weight: 600;
+                                                                                                            letter-spacing: .1em; text-transform: uppercase;
+                                                                                                              color: var(--brass);
+                                                                                                              }
+                                                                                                              .plc-arrow {
+                                                                                                                width: 26px; height: 26px;
+                                                                                                                  background: rgba(154,124,58,.1);
+                                                                                                                    border: 1px solid rgba(154,124,58,.2);
+                                                                                                                      border-radius: 99px;
+                                                                                                                        display: flex; align-items: center; justify-content: center;
+                                                                                                                          opacity: 0; transform: translateX(-4px);
+                                                                                                                            transition: opacity .25s, transform .25s;
+                                                                                                                            }
+                                                                                                                            .plc-arrow svg { width: 11px; height: 11px; stroke: var(--brass); fill: none; stroke-width: 2.5; }
+
+/* ══════════════════════════════════════════════
+   KONTAK (dark)
+   ══════════════════════════════════════════════ */
+#kontak {
+  background: var(--g900);
+  position: relative;
+}
+#kontak::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.06), transparent);
+}
+
+.kontak-wrap { max-width: 860px; margin: 0 auto; }
+.kontak-header { text-align: center; margin-bottom: 52px; }
+.kontak-header .section-label { justify-content: center; }
+.kontak-header .section-h2 { font-size: clamp(30px, 4vw, 50px); }
+.kontak-header p {
+  font-size: 16.5px; font-weight: 300; color: rgba(255,255,255,.88);
+  line-height: 1.75; max-width: 460px; margin: 0 auto;
+}
+
+.kontak-panel {
+  background: var(--g800);
+  border: 1px solid rgba(255,255,255,.06);
+  border-radius: var(--r-xl); overflow: hidden;
+}
+.kontak-top { display: grid; grid-template-columns: 1fr 1px 1fr; align-items: stretch; }
+.kontak-divider-v { background: rgba(255,255,255,.06); }
+.kontak-item { padding: 32px 36px; display: flex; align-items: center; gap: 18px; }
+.kontak-icon {
+  width: 44px; height: 44px; border-radius: var(--r-sm);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.kontak-icon.wa { background: rgba(37,211,102,.1); border: 1px solid rgba(37,211,102,.2); }
+.kontak-icon.wa svg { width: 22px; height: 22px; fill: #25d366; }
+.kontak-icon.em { background: var(--brass-dim); border: 1px solid var(--brass-bdr); }
+.kontak-icon.em svg { width: 20px; height: 20px; stroke: var(--brass-lt); fill: none; stroke-width: 1.8; }
+.kontak-label {
+  font-size: 11.5px; font-weight: 500; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--g500); margin-bottom: 4px;
+}
+.kontak-val {
+  font-family: 'Playfair Display', serif;
+  font-size: 21px; font-weight: 500; color: var(--white); letter-spacing: -.01em;
+}
+.kontak-val-sm { font-size: 14.5px; font-weight: 400; color: rgba(255,255,255,.74); }
+
+.kontak-bottom {
+  border-top: 1px solid rgba(255,255,255,.06);
+  padding: 24px 36px;
+  display: flex; align-items: center; justify-content: space-between; gap: 20px;
+}
+.kontak-trust { display: flex; gap: 24px; flex-wrap: wrap; }
+.trust-pill { display: flex; align-items: center; gap: 7px; font-size: 13px; color: rgba(255,255,255,.78); }
+.trust-pill svg { width: 13px; height: 13px; stroke: var(--brass-lt); fill: none; stroke-width: 2; flex-shrink: 0; }
+
+.btn-wa {
+  display: flex; align-items: center; gap: 10px;
+  padding: 13px 28px;
+  background: var(--brass-lt); border-radius: var(--r-sm);
+  font-size: 13px; font-weight: 600;
+  letter-spacing: .06em; text-transform: uppercase;
+  color: var(--g950);
+  transition: opacity .2s, transform .2s;
+  white-space: nowrap; flex-shrink: 0;
+}
+.btn-wa:hover { opacity: .88; transform: translateY(-1px); }
+.btn-wa svg { width: 16px; height: 16px; fill: var(--g950); }
+
+/* ══════════════════════════════════════════════
+   FOOTER
+   ══════════════════════════════════════════════ */
+footer {
+  background: var(--g950);
+  border-top: 1px solid rgba(255,255,255,.04);
+  padding: 52px 48px 24px;
+}
+.footer-inner {
+  max-width: 1160px; margin: 0 auto;
+  display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.2fr;
+  gap: 48px; padding-bottom: 44px;
+  border-bottom: 1px solid rgba(255,255,255,.04);
+  margin-bottom: 24px;
+}
+.footer-brand-desc {
+  font-size: 14px; font-weight: 300; color: rgba(255,255,255,.78);
+  line-height: 1.75; margin-top: 12px; max-width: 260px;
+}
+.footer-col-title {
+  font-size: 11.5px; font-weight: 600;
+  letter-spacing: .16em; text-transform: uppercase;
+  color: var(--g300); margin-bottom: 18px;
+}
+.footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-links li a {
+  font-size: 14px; font-weight: 300; color: rgba(255,255,255,.78);
+  transition: color .2s;
+}
+.footer-links li a:hover { color: rgba(255,255,255,.94); }
+.footer-contact-row { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px; }
+.footer-contact-row svg {
+  width: 13px; height: 13px; stroke: var(--g400); fill: none;
+  stroke-width: 1.8; flex-shrink: 0; margin-top: 2px;
+}
+.footer-contact-row span { font-size: 14px; font-weight: 300; color: rgba(255,255,255,.78); line-height: 1.5; }
+.footer-bottom {
+  max-width: 1160px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: 12.5px; color: rgba(255,255,255,.44);
+}
+
+/* ══════════════════════════════════════════════
+   REVEAL ANIMATIONS
+   ══════════════════════════════════════════════ */
+.reveal {
+  opacity: 0; transform: translateY(20px);
+  transition: opacity .65s var(--ease), transform .65s var(--ease);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-d1 { transition-delay: .08s; }
+.reveal-d2 { transition-delay: .16s; }
+.reveal-d3 { transition-delay: .24s; }
+.reveal-d4 { transition-delay: .32s; }
+.reveal-d5 { transition-delay: .40s; }
+
+/* ══════════════════════════════════════════════
+   RESPONSIVE — TABLET ≤ 1024px
+   ══════════════════════════════════════════════ */
+@media (max-width: 1024px) {
+  #navbar { padding: 0 28px; }
+  .breadcrumb { padding: 10px 28px; }
+  .section-wrap { padding: 72px 28px; }
+  #hero-produk { padding: 130px 28px 64px; }
+
+  .keunggulan-grid { grid-template-columns: repeat(3, 1fr); }
+  .desk-grid { grid-template-columns: 1fr; gap: 48px; }
+  .desk-mini-row { grid-template-columns: 1fr 1fr; }
+  .proses-steps { grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .proses-steps::before { display: none; }
+  .kegunaan-grid { grid-template-columns: repeat(3, 1fr); }
+  .produk-lain-grid { grid-template-columns: repeat(3, 1fr); }
+  .spec-grid { grid-template-columns: 1fr; gap: 48px; }
+
+  .kegunaan-header { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .kegunaan-header-right { max-width: 100%; }
+  .produk-lain-header { flex-direction: column; align-items: flex-start; gap: 12px; }
+
+  .footer-inner { grid-template-columns: 1fr 1fr; gap: 36px; }
+  .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+  .hero-prod-stats .stat-item { padding: 0 24px; }
+}
+
+/* ══════════════════════════════════════════════
+   RESPONSIVE — MOBILE ≤ 768px
+   ══════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  #navbar { padding: 0 20px; height: 60px; }
+  .breadcrumb { top: 60px; padding: 8px 20px; font-size: 11px; }
+  #nav-menu { display: none; }
+  .desktop-nav-cta { display: none; }
+  .nav-hamburger { display: flex; }
+
+  #nav-menu.mobile-open {
+    display: flex; flex-direction: column;
+    position: fixed;
+    top: 60px; left: 0; right: 0;
+    background: rgba(11,21,18,.97);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255,255,255,.06);
+    padding: 16px 20px 20px;
+    z-index: 250;
+    animation: slideDown .25s var(--ease);
+    align-items: stretch; gap: 12px;
+  }
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  #nav-menu.mobile-open ul { flex-direction: column; gap: 2px; border-bottom: 1px solid rgba(255,255,255,.05); padding-bottom: 12px; }
+  #nav-menu.mobile-open ul li a { padding: 11px 14px; border-radius: var(--r-sm); }
+  #nav-menu.mobile-open .mobile-nav-cta { display: flex !important; width: 100%; justify-content: center; }
+
+  #hero-produk { padding: 108px 20px 52px; min-height: auto; }
+  .hero-prod-h1 { font-size: clamp(38px, 10vw, 54px); }
+  .hero-prod-desc { font-size: 16px; }
+  .hero-prod-actions { flex-direction: column; width: 100%; }
+  .btn-primary, .btn-ghost { width: 100%; max-width: 300px; justify-content: center; }
+  .hero-prod-stats { flex-direction: column; gap: 0; padding-top: 28px; }
+  .hero-prod-stats .stat-item { padding: 16px 0; border-right: none; border-bottom: 1px solid rgba(255,255,255,.06); }
+  .hero-prod-stats .stat-item:last-child { border-bottom: none; }
+
+  .section-wrap { padding: 56px 20px; }
+  .keunggulan-grid { grid-template-columns: 1fr; }
+  .proses-steps { grid-template-columns: 1fr; gap: 32px; }
+  .kegunaan-grid { grid-template-columns: 1fr 1fr; }
+  .produk-lain-grid { grid-template-columns: 1fr 1fr; }
+  .desk-mini-row { grid-template-columns: 1fr; }
+
+  .kontak-top { grid-template-columns: 1fr; }
+  .kontak-divider-v { display: none; }
+  .kontak-item { padding: 22px 24px; }
+  .kontak-item:first-child { border-bottom: 1px solid rgba(255,255,255,.06); }
+  .kontak-bottom { flex-direction: column; padding: 24px; gap: 16px; }
+  .btn-wa { width: 100%; justify-content: center; }
+
+  .footer-inner { grid-template-columns: 1fr; gap: 28px; }
+  footer { padding: 40px 20px 20px; }
+  .footer-bottom { flex-direction: column; gap: 6px; font-size: 12px; }
+  .footer-brand-desc { max-width: 100%; }
+  .spec-cta-card { flex-direction: column; align-items: flex-start; }
+}
+
+@media (max-width: 480px) {
+  .kegunaan-grid { grid-template-columns: 1fr 1fr; }
+  .produk-lain-grid { grid-template-columns: 1fr; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ══════════ NAVBAR ══════════ -->
+<header id="navbar">
+  <a class="nav-logo" href="../index.html">
+    <img src="../img/assets/bm-logo.png" alt="BM Logo" class="nav-logo-mark" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <div class="nav-logo-mark" style="display:none;">BM</div>
+    <div class="nav-logo-text">
+      <strong>Berkah Mandiri</strong>
+      <span>Berkah bersama, maju berkelanjutan</span>
+    </div>
+  </a>
+
+  <nav id="nav-menu">
+    <ul>
+      <li><a href="../index.html#beranda"         class="nav-link">Beranda</a></li>
+      <li><a href="../index.html#pohon-kehidupan" class="nav-link">Tentang Kelapa</a></li>
+      <li><a href="../index.html#produk"          class="nav-link active">Produk</a></li>
+      <li><a href="../index.html#tentang"         class="nav-link">Tentang Kami</a></li>
+      <li><a href="#kontak"                       class="nav-link">Kontak</a></li>
+    </ul>
+    <a href="https://wa.me/628138887073" target="_blank" class="nav-cta mobile-nav-cta">
+      <svg fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Hubungi Kami
+    </a>
+  </nav>
+
+  <a href="https://wa.me/628138887073" target="_blank" class="nav-cta desktop-nav-cta">
+    <svg fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Hubungi Kami
+  </a>
+
+  <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- Breadcrumb -->
+<div class="breadcrumb">
+  <a href="../index.html">Beranda</a>
+  <span class="breadcrumb-sep">›</span>
+  <a href="../index.html#produk">Produk</a>
+  <span class="breadcrumb-sep">›</span>
+  <span class="breadcrumb-current">Arang Batok Kelapa</span>
+</div>
+
+<!-- ══════════ HERO ══════════ -->
+<section id="hero-produk">
+  <div class="hero-prod-inner">
+
+    <div class="hero-prod-badge reveal">
+      <!-- flame icon -->
+      <svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:#e07060;"><path d="M12 2c0 0-6 5-6 10a6 6 0 0 0 12 0C18 7 12 2 12 2zM12 16a3 3 0 0 1-3-3c0-2.5 3-6 3-6s3 3.5 3 6A3 3 0 0 1 12 16z"/></svg>
+      100% Tempurung Kelapa — Alami &amp; Ramah Lingkungan
+    </div>
+
+    <div class="hero-prod-overline reveal">
+      <div class="hero-prod-dot"></div>
+      <span>Produk Unggulan — Berkah Mandiri</span>
+      <div class="hero-prod-dot"></div>
+    </div>
+
+    <h1 class="hero-prod-h1 reveal reveal-d1">
+      Arang Batok
+      <em>Kelapa.</em>
+    </h1>
+    <p class="hero-prod-sub reveal reveal-d1">Premium Quality</p>
+
+    <p class="hero-prod-desc reveal reveal-d2">
+      Dibuat dari <strong style="color:var(--brass-lt);">tempurung kelapa</strong> pilihan terbaik melalui proses karbonisasi modern untuk menghasilkan arang berkualitas tinggi dengan panas stabil dan tahan lama.
+    </p>
+
+    <div class="hero-prod-actions reveal reveal-d3">
+      <a href="#kontak" class="btn-primary">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        DM Sekarang
+      </a>
+      <a href="#proses" class="btn-ghost">
+        Lihat Proses Produksi
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+
+    <div class="hero-prod-stats reveal reveal-d4">
+      <div class="stat-item">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Alami</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">⭐⭐⭐⭐⭐</div>
+        <div class="stat-label">Kualitas Terjamin</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">Ready</div>
+        <div class="stat-label">Stock Tersedia</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ KEUNGGULAN ══════════ -->
+<section id="keunggulan">
+  <div class="section-wrap">
+    <div class="keunggulan-inner">
+      <div class="section-label reveal">
+        <div class="section-label-line"></div>
+        <span>Keunggulan Produk</span>
+        <div class="section-label-line"></div>
+      </div>
+      <h2 class="section-h2 reveal reveal-d1">Tiga Kelebihan <em>Utama.</em></h2>
+      <p style="font-size:16px;font-weight:300;color:rgba(255,255,255,.82);line-height:1.78;" class="reveal reveal-d2">
+        Arang batok kelapa kami unggul dalam tiga aspek kritis yang dibutuhkan oleh industri dan rumah tangga.
+      </p>
+    </div>
+
+    <div class="keunggulan-grid reveal reveal-d2">
+      <!-- Panas Tinggi -->
+      <div class="keunggulan-card">
+        <div class="keung-icon">
+          <!-- flame -->
+          <svg viewBox="0 0 24 24" style="width:24px;height:24px;fill:#e07060;"><path d="M12 2c0 0-6 5-6 10a6 6 0 0 0 12 0C18 7 12 2 12 2zM12 16a3 3 0 0 1-3-3c0-2.5 3-6 3-6s3 3.5 3 6A3 3 0 0 1 12 16z"/></svg>
+        </div>
+        <div class="keung-title">Panas Tinggi</div>
+        <div class="keung-desc">Bara panas stabil dan merata. Menghasilkan kalor optimal untuk memasak, BBQ, maupun kebutuhan industri.</div>
+      </div>
+      <!-- Tahan Lama -->
+      <div class="keunggulan-card">
+        <div class="keung-icon">
+          <!-- shield -->
+          <svg viewBox="0 0 24 24" style="width:24px;height:24px;fill:#e07060;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="keung-title">Tahan Lama</div>
+        <div class="keung-desc">Tidak mudah hancur, hemat dan efisien. Masa bakar lebih panjang sehingga lebih ekonomis dibanding arang biasa.</div>
+      </div>
+      <!-- Minim Asap -->
+      <div class="keunggulan-card">
+        <div class="keung-icon">
+          <!-- wind/leaf -->
+          <svg viewBox="0 0 24 24" style="width:24px;height:24px;fill:#e07060;"><path d="M17 8C8 10 5.9 16.17 3.82 19.82A1 1 0 0 0 5 21c4 0 13-5 12-13z"/><path d="M17 8a5.07 5.07 0 0 0 5 5c-1 0-3-1-5-5z"/></svg>
+        </div>
+        <div class="keung-title">Minim Asap</div>
+        <div class="keung-desc">Asap sedikit, lebih bersih dan nyaman. Proses pirolisis menghasilkan arang yang bersih dengan emisi asap minimal.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ DESKRIPSI & KEISTIMEWAAN ══════════ -->
+<section id="deskripsi">
+  <div class="section-wrap">
+    <div class="desk-grid">
+      <div class="desk-left">
+        <div class="section-label label-dark reveal">
+          <div class="section-label-line"></div>
+          <span>Tentang Produk</span>
+        </div>
+        <h2 class="section-h2 on-light reveal reveal-d1">Berkualitas Tinggi, <em>Ramah Lingkungan.</em></h2>
+        <p class="desk-body reveal reveal-d2">
+          Dibuat dari <strong>tempurung kelapa</strong> pilihan terbaik melalui proses karbonisasi modern untuk menghasilkan arang berkualitas tinggi dengan panas stabil dan tahan lama.
+        </p>
+        <p class="desk-body reveal reveal-d2" style="margin-bottom:0;">
+          Setiap batch produksi diproses dengan teknologi pirolisis modern — tanpa bahan kimia tambahan — memastikan produk yang murni alami, ramah lingkungan, dan dapat digunakan secara berkelanjutan.
+        </p>
+
+        <div class="desk-features reveal reveal-d3">
+          <div class="desk-feature-item">
+            <div class="desk-feature-dot"></div>
+            <span>100% Alami — Tanpa bahan kimia berbahaya</span>
+          </div>
+          <div class="desk-feature-item">
+            <div class="desk-feature-dot"></div>
+            <span>Ramah Lingkungan — Dapat digunakan secara berkelanjutan</span>
+          </div>
+          <div class="desk-feature-item">
+            <div class="desk-feature-dot"></div>
+            <span>Kualitas Terjamin — Standar produksi terbaik</span>
+          </div>
+          <div class="desk-feature-item">
+            <div class="desk-feature-dot"></div>
+            <span>Ready Stock — Siap kirim untuk kebutuhan skala besar &amp; kecil</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="desk-right reveal reveal-d2">
+        <div class="desk-card-big">
+          <div class="desk-card-big-icon">
+            <svg viewBox="0 0 24 24" style="width:22px;height:22px;fill:#e07060;"><path d="M12 2c0 0-6 5-6 10a6 6 0 0 0 12 0C18 7 12 2 12 2z"/></svg>
+          </div>
+          <h3>Teknologi Pirolisis Modern</h3>
+          <p>Pembakaran dilakukan dalam ruang tertutup tanpa oksigen dengan suhu tinggi. Teknologi pirolisis menjaga kualitas arang tetap optimal — menghasilkan karbon murni dengan nilai kalor tinggi.</p>
+        </div>
+
+        <div class="desk-mini-row">
+          <div class="desk-mini">
+            <div class="desk-mini-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+            </div>
+            <h4>100% Alami</h4>
+            <p>Bebas bahan kimia, murni dari tempurung kelapa</p>
+          </div>
+          <div class="desk-mini">
+            <div class="desk-mini-icon">
+              <svg viewBox="0 0 24 24"><path d="M2 20h20M5 20V10l7-7 7 7v10"/></svg>
+            </div>
+            <h4>Ramah Lingkungan</h4>
+            <p>Produksi berkelanjutan, mendukung zero waste</p>
+          </div>
+          <div class="desk-mini">
+            <div class="desk-mini-icon">
+              <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <h4>Panas Stabil</h4>
+            <p>Nilai kalor tinggi dan pembakaran merata</p>
+          </div>
+          <div class="desk-mini">
+            <div class="desk-mini-icon">
+              <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            </div>
+            <h4>Siap Kirim</h4>
+            <p>Stok tersedia, pengiriman terjamin ke seluruh Indonesia</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ PROSES PRODUKSI ══════════ -->
+<section id="proses">
+  <div class="section-wrap">
+    <div class="proses-header">
+      <div class="section-label reveal">
+        <div class="section-label-line"></div>
+        <span>Proses Produksi</span>
+        <div class="section-label-line"></div>
+      </div>
+      <h2 class="section-h2 reveal reveal-d1">Diproses dengan <em>Teknologi Pirolisis.</em></h2>
+      <p class="reveal reveal-d2">Setiap tahap dijaga ketat untuk memastikan kualitas arang batok yang konsisten dan optimal.</p>
+      <div class="proses-sub reveal reveal-d3">
+        <span>Pembakaran Lebih Efisien</span>
+        <div class="proses-sub-sep"></div>
+        <span>Bebas Bahan Kimia</span>
+        <div class="proses-sub-sep"></div>
+        <span>Kualitas Terjamin</span>
+      </div>
+    </div>
+
+    <div class="proses-steps">
+      <!-- 1 -->
+      <div class="proses-step reveal">
+        <div class="proses-step-num">1</div>
+        <div class="proses-step-img">
+          <img src="../img/assets/proses-1-bahan-baku.jpg" alt="Bahan Baku Pilihan" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+          <svg style="display:none;" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.3)" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <div class="proses-step-title">Bahan Baku Pilihan</div>
+        <div class="proses-step-desc">Tempurung kelapa dipilih dari bahan terbaik — keras, kering, dan bebas kontaminan untuk menghasilkan arang premium.</div>
+      </div>
+      <!-- 2 -->
+      <div class="proses-step reveal reveal-d1">
+        <div class="proses-step-num">2</div>
+        <div class="proses-step-img">
+          <img src="../img/assets/proses-2-karbonisasi.jpg" alt="Karbonisasi Pirolisis" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+          <svg style="display:none;" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.3)" stroke-width="1.5"><path d="M12 2c0 0-6 5-6 10a6 6 0 0 0 12 0C18 7 12 2 12 2z"/></svg>
+        </div>
+        <div class="proses-step-title">Karbonisasi (Pirolisis)</div>
+        <div class="proses-step-desc">Dibakar dalam ruang tertutup tanpa oksigen dengan suhu tinggi. Teknologi pirolisis menjaga kualitas arang tetap optimal.</div>
+      </div>
+      <!-- 3 -->
+      <div class="proses-step reveal reveal-d2">
+        <div class="proses-step-num">3</div>
+        <div class="proses-step-img">
+          <img src="../img/assets/proses-3-pendinginan.jpg" alt="Pendinginan Alami" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+          <svg style="display:none;" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.3)" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div class="proses-step-title">Pendinginan Alami</div>
+        <div class="proses-step-desc">Arang didinginkan secara alami untuk menjaga kekuatan dan kestabilan bara — proses penting agar karbon tidak retak.</div>
+      </div>
+      <!-- 4 -->
+      <div class="proses-step reveal reveal-d3">
+        <div class="proses-step-num">4</div>
+        <div class="proses-step-img">
+          <img src="../img/assets/proses-4-sortir.jpg" alt="Sortir Arang Batok" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+          <svg style="display:none;" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.3)" stroke-width="1.5"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        </div>
+        <div class="proses-step-title">Sortir Arang Batok</div>
+        <div class="proses-step-desc">Arang batok kelapa disortir untuk memastikan kualitas terbaik sebelum dikemas — hanya arang berkualitas yang lolos seleksi.</div>
+      </div>
+      <!-- 5 -->
+      <div class="proses-step reveal reveal-d4">
+        <div class="proses-step-num">5</div>
+        <div class="proses-step-img">
+          <img src="../img/assets/proses-5-siap.jpg" alt="Siap Digunakan" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+          <svg style="display:none;" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.3)" stroke-width="1.5"><path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        </div>
+        <div class="proses-step-title">Siap Digunakan</div>
+        <div class="proses-step-desc">Arang batok kelapa berkualitas siap untuk kebutuhan Anda — dikemas rapi dan siap dikirim ke seluruh wilayah.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ COCOK UNTUK ══════════ -->
+<section id="kegunaan">
+  <div class="section-wrap">
+    <div class="kegunaan-header">
+      <div class="kegunaan-header-left">
+        <div class="section-label label-dark reveal">
+          <div class="section-label-line"></div>
+          <span>Cocok Untuk</span>
+        </div>
+        <h2 class="section-h2 on-light reveal reveal-d1">Lima Segmen <em>Pengguna.</em></h2>
+      </div>
+      <p class="kegunaan-header-right reveal reveal-d2">
+        Arang batok kelapa Berkah Mandiri cocok digunakan di berbagai segmen — dari rumah tangga hingga industri besar.
+      </p>
+    </div>
+
+    <div class="kegunaan-grid reveal reveal-d2">
+      <!-- BBQ & Grill -->
+      <div class="kegunaan-card">
+        <div class="kegunaan-icon">
+          <svg viewBox="0 0 24 24"><path d="M4 21a8 8 0 0 1 8-8 8 8 0 0 1 8 8M12 13V3M8 7l4-4 4 4"/></svg>
+        </div>
+        <div class="kegunaan-title">BBQ &amp; Grill</div>
+      </div>
+      <!-- Shisha -->
+      <div class="kegunaan-card">
+        <div class="kegunaan-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2v6M8 8c0 2.2 1.8 4 4 4s4-1.8 4-4M8 8H4M16 8h4M12 12v10"/><circle cx="12" cy="21" r="1"/></svg>
+        </div>
+        <div class="kegunaan-title">Shisha</div>
+      </div>
+      <!-- Industri -->
+      <div class="kegunaan-card">
+        <div class="kegunaan-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="15" rx="1"/><path d="M16 7V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v3"/><line x1="12" y1="12" x2="12" y2="17"/><line x1="9" y1="14" x2="15" y2="14"/></svg>
+        </div>
+        <div class="kegunaan-title">Industri</div>
+      </div>
+      <!-- Usaha Kuliner -->
+      <div class="kegunaan-card">
+        <div class="kegunaan-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg>
+        </div>
+        <div class="kegunaan-title">Usaha Kuliner</div>
+      </div>
+      <!-- Camping -->
+      <div class="kegunaan-card">
+        <div class="kegunaan-icon">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 2 22 22 22"/><line x1="12" y1="12" x2="12" y2="22"/></svg>
+        </div>
+        <div class="kegunaan-title">Camping</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ SPESIFIKASI ══════════ -->
+<section id="spesifikasi">
+  <div class="section-wrap">
+    <div class="spec-grid">
+      <div class="spec-left">
+        <div class="section-label reveal">
+          <div class="section-label-line"></div>
+          <span>Spesifikasi Teknis</span>
+        </div>
+        <h2 class="section-h2 reveal reveal-d1">Detail <em>Produk.</em></h2>
+        <table class="spec-table reveal reveal-d2">
+          <tr><td>Nama Produk</td><td>Arang Batok Kelapa Premium</td></tr>
+          <tr><td>Bahan Baku</td><td>Tempurung Kelapa (Coconut Shell)</td></tr>
+          <tr><td>Proses</td><td>Pirolisis (Karbonisasi Modern)</td></tr>
+          <tr><td>Kadar Air</td><td>Maks. 5%</td></tr>
+          <tr><td>Kadar Abu</td><td>Maks. 3%</td></tr>
+          <tr><td>Nilai Kalor</td><td>± 7.000 – 7.500 kkal/kg</td></tr>
+          <tr><td>Ukuran</td><td>Tidak seragam (natural shell shape)</td></tr>
+          <tr><td>Warna</td><td>Hitam pekat mengkilap</td></tr>
+          <tr><td>Kemasan</td><td>Karung 5 kg / 10 kg / 25 kg / Curah</td></tr>
+          <tr><td>Penggunaan</td><td>BBQ, Shisha, Industri, Kuliner, Camping</td></tr>
+          <tr><td>Ketersediaan</td><td>Ready Stock — Lokal &amp; Ekspor</td></tr>
+        </table>
+      </div>
+
+      <div class="spec-right reveal reveal-d2">
+        <div class="spec-badge-wrap">
+          <div class="spec-badge-title">Keunggulan Kualitas</div>
+          <div class="spec-badges">
+            <div class="spec-badge">
+              <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+              Kualitas Terjamin
+            </div>
+            <div class="spec-badge">
+              <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2z"/><path d="M12 2c-2.76 3.63-4 7.27-4 10s1.24 6.37 4 10M12 2c2.76 3.63 4 7.27 4 10s-1.24 6.37-4 10M2 12h20"/></svg>
+              Lokal &amp; Ekspor
+            </div>
+            <div class="spec-badge">
+              <svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+              100% Alami
+            </div>
+            <div class="spec-badge">
+              <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              Panas Stabil
+            </div>
+            <div class="spec-badge">
+              <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.77a16 16 0 0 0 6.29 6.29"/></svg>
+              Respon Cepat
+            </div>
+            <div class="spec-badge">
+              <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+              Minim Asap
+            </div>
+          </div>
+        </div>
+
+        <div class="spec-cta-card">
+          <div class="spec-cta-text">
+            <strong>Butuh Info Harga &amp; Stok?</strong>
+            Hubungi kami langsung via WhatsApp untuk penawaran terbaik dan pengiriman ke seluruh wilayah Indonesia.
+          </div>
+          <a href="https://wa.me/628138887073" target="_blank" class="btn-wa" style="padding:11px 20px;font-size:12px;">
+            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Tanya Harga
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ PRODUK LAIN ══════════ -->
+<section id="produk-lain">
+  <div class="section-wrap">
+    <div class="produk-lain-header">
+      <div class="produk-lain-header-left">
+        <div class="section-label label-dark reveal">
+          <div class="section-label-line"></div>
+          <span>Produk Lainnya</span>
+        </div>
+        <h2 class="section-h2 on-light reveal reveal-d1">Jelajahi Produk <em>Berkah Mandiri.</em></h2>
+      </div>
+      <a href="../index.html#produk" class="produk-lain-back reveal reveal-d2">
+        <svg viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+        Semua Produk
+      </a>
+    </div>
+
+    <div class="produk-lain-grid reveal reveal-d2">
+      <a href="kopra.html" class="produk-lain-card">
+        <div class="plc-img">
+          <img src="../img/assets/01-kopra.jpg" alt="Kopra Putih" onerror="this.style.opacity='.2'">
+        </div>
+        <div class="plc-tag">Bahan Baku Minyak</div>
+        <div class="plc-title">Kopra Putih</div>
+        <div class="plc-footer">
+          <span class="plc-link-text">Lihat Detail</span>
+          <div class="plc-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+        </div>
+      </a>
+      <a href="briket-kelapa.html" class="produk-lain-card">
+        <div class="plc-img">
+          <img src="../img/assets/03-briket-arang-kelapa.jpg" alt="Briket Kelapa" onerror="this.style.opacity='.2'">
+        </div>
+        <div class="plc-tag">BBQ &amp; Ekspor</div>
+        <div class="plc-title">Briket Kelapa</div>
+        <div class="plc-footer">
+          <span class="plc-link-text">Lihat Detail</span>
+          <div class="plc-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+        </div>
+      </a>
+      <a href="cocobristle.html" class="produk-lain-card">
+        <div class="plc-img">
+          <img src="../img/assets/04-cocobristel.jpg" alt="Cocobristle" onerror="this.style.opacity='.2'">
+        </div>
+        <div class="plc-tag">Sikat &amp; Pembersih</div>
+        <div class="plc-title">Cocobristle</div>
+        <div class="plc-footer">
+          <span class="plc-link-text">Lihat Detail</span>
+          <div class="plc-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+        </div>
+      </a>
+      <a href="cocofiber.html" class="produk-lain-card">
+        <div class="plc-img">
+          <img src="../img/assets/05-cocofiber.jpg" alt="Cocofiber" onerror="this.style.opacity='.2'">
+        </div>
+        <div class="plc-tag">Industri &amp; Geotekstil</div>
+        <div class="plc-title">Cocofiber</div>
+        <div class="plc-footer">
+          <span class="plc-link-text">Lihat Detail</span>
+          <div class="plc-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+        </div>
+      </a>
+      <a href="cocopeat.html" class="produk-lain-card">
+        <div class="plc-img">
+          <img src="../img/assets/06-cocopeat.jpg" alt="Cocopeat" onerror="this.style.opacity='.2'">
+        </div>
+        <div class="plc-tag">Media Tanam</div>
+        <div class="plc-title">Cocopeat</div>
+        <div class="plc-footer">
+          <span class="plc-link-text">Lihat Detail</span>
+          <div class="plc-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ KONTAK ══════════ -->
+<section id="kontak">
+  <div class="section-wrap">
+    <div class="kontak-wrap">
+      <div class="kontak-header">
+        <div class="section-label reveal" style="justify-content:center;">
+          <div class="section-label-line"></div>
+          <span>Hubungi Kami</span>
+          <div class="section-label-line"></div>
+        </div>
+        <h2 class="section-h2 reveal reveal-d1">DM Sekarang, <em>Ready Stock.</em></h2>
+        <p class="reveal reveal-d2">Kami siap melayani pemesanan arang batok kelapa dalam berbagai skala — dari kebutuhan rumah tangga hingga industri besar. Hubungi kami untuk informasi dan pemesanan.</p>
+      </div>
+
+      <div class="kontak-panel reveal reveal-d2">
+        <div class="kontak-top">
+          <div class="kontak-item">
+            <div class="kontak-icon wa">
+              <svg fill="#25d366" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </div>
+            <div>
+              <div class="kontak-label">WhatsApp</div>
+              <div class="kontak-val">0813-888-7073</div>
+            </div>
+          </div>
+          <div class="kontak-divider-v"></div>
+          <div class="kontak-item">
+            <div class="kontak-icon em">
+              <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <div class="kontak-label">Email</div>
+              <div class="kontak-val-sm">berkahmandiri.id@gmail.com</div>
+            </div>
+          </div>
+        </div>
+        <div class="kontak-bottom">
+          <div class="kontak-trust">
+            <div class="trust-pill">
+              <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+              Kualitas Terjamin
+            </div>
+            <div class="trust-pill">
+              <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              Amanah
+            </div>
+            <div class="trust-pill">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              Respon Cepat
+            </div>
+          </div>
+          <a href="https://wa.me/628138887073" target="_blank" class="btn-wa">
+            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Hubungi Kami Sekarang
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="nav-logo" style="cursor:default;">
+        <img src="../img/assets/bm-logo.png" alt="BM Logo" class="nav-logo-mark" onerror="this.style.display='none'">
+        <div class="nav-logo-text">
+          <strong>Berkah Mandiri</strong>
+          <span>Berkah bersama, maju berkelanjutan</span>
+        </div>
+      </div>
+      <p class="footer-brand-desc">Perusahaan pengolahan kelapa terpadu — menghadirkan produk berkualitas tinggi dari setiap bagian kelapa untuk pasar lokal dan internasional.</p>
+    </div>
+
+    <div>
+      <div class="footer-col-title">Navigasi</div>
+      <ul class="footer-links">
+        <li><a href="../index.html#beranda">Beranda</a></li>
+        <li><a href="../index.html#pohon-kehidupan">Tentang Kelapa</a></li>
+        <li><a href="../index.html#produk">Produk</a></li>
+        <li><a href="../index.html#tentang">Tentang Kami</a></li>
+        <li><a href="#kontak">Kontak</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="footer-col-title">Produk Kami</div>
+      <ul class="footer-links">
+        <li><a href="kopra.html">Kopra Putih</a></li>
+        <li><a href="arang-batok.html" style="color:var(--brass-lt);">Arang Batok ✦</a></li>
+        <li><a href="briket-kelapa.html">Briket Kelapa</a></li>
+        <li><a href="cocobristle.html">Cocobristle</a></li>
+        <li><a href="cocofiber.html">Cocofiber</a></li>
+        <li><a href="cocopeat.html">Cocopeat</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="footer-col-title">Kontak</div>
+      <div class="footer-contact-row">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.77a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span><a href="https://wa.me/628138887073" target="_blank">0813-888-7073</a></span>
+      </div>
+      <div class="footer-contact-row">
+        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <span><a href="mailto:berkahmandiri.id@gmail.com">berkahmandiri.id@gmail.com</a></span>
+      </div>
+      <div class="footer-contact-row">
+        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span>Jl. Suwarjono, RT 01 RW 01, Desa Pekaja, Kec. Kalibagor, Kab. Banyumas, Jawa Tengah, Kode Pos: 53191</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <span>&copy; 2026 Berkah Mandiri. All rights reserved.</span>
+    <span>Integrated Coconut Processing &mdash; Berkah Bersama, Maju Berkelanjutan</span>
+  </div>
+</footer>
+
+<!-- ══════════ JS ══════════ -->
+<script>
+/* Navbar scroll */
+const navbar = document.getElementById('navbar');
+const breadcrumb = document.querySelector('.breadcrumb');
+window.addEventListener('scroll', () => {
+  const isScrolled = window.scrollY > 32;
+  navbar.classList.toggle('scrolled', isScrolled);
+  if (breadcrumb) breadcrumb.classList.toggle('scrolled', isScrolled);
+}, { passive: true });
+
+/* Active nav link */
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-link');
+const sectionObs = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.getAttribute('id');
+      navLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+      });
+    }
+  });
+}, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
+sections.forEach(s => sectionObs.observe(s));
+
+/* Scroll reveal */
+const revealObs = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObs.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+/* Hamburger */
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('nav-menu');
+
+hamburger.addEventListener('click', () => {
+  const isOpen = navMenu.classList.toggle('mobile-open');
+  hamburger.classList.toggle('open', isOpen);
+  hamburger.setAttribute('aria-expanded', isOpen);
+  document.body.style.overflow = isOpen ? 'hidden' : '';
+});
+
+document.querySelectorAll('.nav-link').forEach(link => {
+  link.addEventListener('click', () => {
+    navMenu.classList.remove('mobile-open');
+    hamburger.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  });
+});
+
+document.addEventListener('click', (e) => {
+  if (navMenu.classList.contains('mobile-open') &&
+      !navMenu.contains(e.target) && !hamburger.contains(e.target)) {
+    navMenu.classList.remove('mobile-open');
+    hamburger.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+});
+</script>
+</body>
+</html>

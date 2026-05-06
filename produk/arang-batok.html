@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kopra Putih Premium — Berkah Mandiri</title>
+<title>Arang Batok Kelapa Premium — Berkah Mandiri</title>
 <link rel="icon" href="../img/assets/bm-logo.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -159,6 +159,7 @@ img { max-width: 100%; display: block; }
 .breadcrumb-sep { color: rgba(255,255,255,.2); }
 .breadcrumb-current { color: var(--brass-lt); }
 
+
 /* ══════════════════════════════════════════════
    HERO — PRODUCT PAGE
    ══════════════════════════════════════════════ */
@@ -167,11 +168,11 @@ img { max-width: 100%; display: block; }
   display: flex; flex-direction: column;
   align-items: center; justify-content: center;
   text-align: center;
-  padding: 120px 48px 80px;
+  padding: 148px 48px 80px;
   position: relative; overflow: hidden;
   background-image:
     linear-gradient(rgba(11,21,18,.70), rgba(11,21,18,.70)),
-    url("../img/assets/home-kopra.jpg");
+    url("../img/assets/home-arang-kelapa.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -310,7 +311,7 @@ section { scroll-margin-top: 68px; }
 .section-h2.on-light em { color: var(--g700); }
 
 /* ══════════════════════════════════════════════
-   APA ITU KOPRA PUTIH (dark, intro)
+   APA ITU ARANG BATOK (dark, intro)
    ══════════════════════════════════════════════ */
 #apa-itu {
   background: var(--g900);
@@ -459,6 +460,90 @@ section { scroll-margin-top: 68px; }
   font-size: 13.5px; font-weight: 300;
   color: var(--body-txt); line-height: 1.75;
 }
+
+/* ══════════════════════════════════════════════
+   DESKRIPSI + KEISTIMEWAAN (ivory)
+   ══════════════════════════════════════════════ */
+#deskripsi { background: var(--ivory); color: var(--g950); }
+
+.desk-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 80px; align-items: center;
+}
+
+.desk-left .section-h2 { margin-bottom: 20px; }
+.desk-body {
+  font-size: 16.5px; font-weight: 300; line-height: 1.85;
+  color: var(--body-txt); margin-bottom: 16px;
+}
+.desk-body strong { color: var(--red); font-weight: 600; }
+
+.desk-features {
+  display: flex; flex-direction: column; gap: 0;
+  margin-top: 36px;
+  border-top: 1px solid var(--ivory-3);
+}
+.desk-feature-item {
+  display: flex; align-items: center; gap: 14px;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--ivory-3);
+  transition: padding-left .2s;
+}
+.desk-feature-item:hover { padding-left: 4px; }
+.desk-feature-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--red); flex-shrink: 0; }
+.desk-feature-item span { font-size: 14.5px; font-weight: 400; color: var(--g700); }
+
+.desk-right { display: flex; flex-direction: column; gap: 12px; }
+
+.desk-card-big {
+  background: var(--g950);
+  border: 1px solid rgba(255,255,255,.06);
+  border-radius: var(--r-lg);
+  padding: 32px;
+  position: relative; overflow: hidden;
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+}
+.desk-card-big::before {
+  content: ''; position: absolute;
+  top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, var(--red), transparent);
+}
+.desk-card-big-icon {
+  width: 48px; height: 48px;
+  background: var(--red-dim);
+  border: 1px solid var(--red-bdr);
+  border-radius: var(--r-sm);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 16px;
+}
+.desk-card-big-icon svg { width: 22px; height: 22px; fill: #e07060; }
+.desk-card-big h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px; font-weight: 500;
+  color: var(--white); margin-bottom: 8px;
+}
+.desk-card-big p { font-size: 14px; color: rgba(255,255,255,.84); font-weight: 300; line-height: 1.7; }
+
+.desk-mini-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.desk-mini {
+  background: var(--ivory-2);
+  border: 1px solid var(--ivory-3);
+  border-radius: var(--r-md);
+  padding: 20px 18px;
+  transition: border-color .2s;
+}
+.desk-mini:hover { border-color: var(--ivory-3); background: var(--ivory-3); }
+.desk-mini-icon {
+  width: 34px; height: 34px;
+  background: rgba(154,124,58,.1);
+  border: 1px solid rgba(154,124,58,.15);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 12px;
+}
+.desk-mini-icon svg { width: 16px; height: 16px; stroke: var(--brass); fill: none; stroke-width: 2; }
+.desk-mini h4 { font-size: 14.5px; font-weight: 600; color: var(--g950); margin-bottom: 3px; }
+.desk-mini p { font-size: 13px; color: var(--body-txt); font-weight: 300; line-height: 1.5; }
 
 /* ══════════════════════════════════════════════
    PROSES PRODUKSI (dark)
@@ -1102,7 +1187,7 @@ footer {
   <span class="breadcrumb-sep">›</span>
   <a href="../index.html#produk">Produk</a>
   <span class="breadcrumb-sep">›</span>
-  <span class="breadcrumb-current">Kopra Putih</span>
+  <span class="breadcrumb-current">Arang Batok</span>
 </div>
 
 <!-- ══════════ HERO ══════════ -->
@@ -1114,15 +1199,15 @@ footer {
     </div>
 
     <h1 class="hero-h1 reveal reveal-d2">
-      Kopra Putih<em>Premium.</em>
+      Arang Batok<em>Kelapa Premium.</em>
     </h1>
 
     <p class="hero-desc reveal reveal-d3">
-      Daging kelapa kering berkualitas tinggi yang diproses dengan metode oven modern — putih bersih, higienis, kadar air rendah, dan siap supply untuk industri lokal maupun ekspor internasional.
+      Arang batok kelapa premium dengan panas tinggi, pembakaran merata, dan minim asap — ideal untuk BBQ, industri, dan ekspor.
     </p>
 
     <div class="hero-actions reveal reveal-d4">
-      <a href="https://wa.me/628138887073?text=Halo%20Alesha%2C%20saya%20ingin%20mengetahui%20lebih%20lanjut%20tentang%20Kopra%20Putih%20Premium%20Berkah%20Mandiri." target="_blank" class="btn-primary">
+      <a href="https://wa.me/628138887073?text=Halo%20Alesha%2C%20saya%20ingin%20mengetahui%20lebih%20lanjut%20tentang%20Arang%20Batok%20Kelapa%20Premium%20Berkah%20Mandiri." target="_blank" class="btn-primary">
         Minta Penawaran
         <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
@@ -1134,12 +1219,12 @@ footer {
 
     <div class="hero-stats reveal reveal-d5">
       <div class="stat-item">
-        <div class="stat-num">5–7%</div>
-        <div class="stat-label">Kadar Air</div>
+        <div class="stat-num">Panas</div>
+        <div class="stat-label">Tinggi & Stabil</div>
       </div>
       <div class="stat-item">
-        <div class="stat-num">Putih</div>
-        <div class="stat-label">Warna Bersih</div>
+        <div class="stat-num">Minim</div>
+        <div class="stat-label">Asap</div>
       </div>
       <div class="stat-item">
         <div class="stat-num">Ekspor</div>
@@ -1149,7 +1234,7 @@ footer {
   </div>
 </section>
 
-<!-- ══════════ APA ITU KOPRA PUTIH ══════════ -->
+<!-- ══════════ APA ITU ARANG BATOK ══════════ -->
 <section id="apa-itu">
   <div class="section-wrap">
     <div class="apa-grid">
@@ -1159,15 +1244,15 @@ footer {
           <div class="section-label-line"></div>
           <span>Tentang Produk</span>
         </div>
-        <h2 class="section-h2 reveal reveal-d1">Apa Itu <em>Kopra Putih?</em></h2>
+        <h2 class="section-h2 reveal reveal-d1">Apa Itu <em>Arang Batok?</em></h2>
         <p class="apa-body reveal reveal-d2">
-          Kopra putih adalah daging kelapa kering yang diproses dengan metode oven modern sehingga lebih bersih, higienis, dan berkualitas tinggi.
+          Arang batok adalah arang kelapa berkualitas tinggi yang diolah dari tempurung kelapa menggunakan proses pirolisis modern untuk hasil pembakaran bersih dan stabil.
         </p>
         <p class="apa-body reveal reveal-d2">
-          Berbeda dengan kopra tradisional yang dikeringkan menggunakan asap, kopra putih Berkah Mandiri diproses dalam kondisi tertutup dengan suhu terkontrol — menghasilkan produk dengan warna putih alami, tanpa bau asap, dan tahan lama.
+          Proses pirolisis tertutup menjadikan produk ini minim asap, lebih higienis, dan lebih tahan lama dibanding arang kayu tradisional.
         </p>
         <p class="apa-body reveal reveal-d2">
-          Kopra putih merupakan bahan baku utama untuk produksi minyak kelapa premium, santan, kosmetik, produk kesehatan, dan berbagai industri kuliner bernilai tinggi.
+          Arang batok Berkah Mandiri ideal untuk kebutuhan BBQ, industri, usaha kuliner, shisha, dan ekspor karena kualitasnya yang unggul dan konsisten.
         </p>
 
         <div class="apa-tags reveal reveal-d3">
@@ -1193,11 +1278,11 @@ footer {
       <div class="apa-right reveal reveal-d2">
         <div class="apa-visual-card">
           <div class="apa-visual-img">
-            <img src="../img/assets/produk-kopra.jpg" alt="Kopra Putih Premium Berkah Mandiri" class="apa-visual-img-inner"
+            <img src="../img/assets/produk-arang-kelapa.jpg" alt="Arang Batok Kelapa Premium Berkah Mandiri" class="apa-visual-img-inner"
               onerror="this.style.display='none'; this.parentElement.querySelector('.apa-visual-placeholder').style.display='flex';">
             <div class="apa-visual-placeholder" style="display:none;">
               <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
-              <span>Kopra Putih Premium</span>
+              <span>Arang Batok Kelapa Premium</span>
             </div>
           </div>
           <div class="apa-visual-footer">
@@ -1223,9 +1308,9 @@ footer {
         <span>Keunggulan Produk</span>
         <div class="section-label-line"></div>
       </div>
-      <h2 class="section-h2 on-light reveal reveal-d1">Keunggulan <em>Kopra Putih.</em></h2>
+      <h2 class="section-h2 on-light reveal reveal-d1">Keunggulan <em>Arang Batok.</em></h2>
       <p class="reveal reveal-d2" style="font-size:14px;font-weight:300;color:var(--body-txt);line-height:1.75;margin-top:8px;">
-        Empat keunggulan utama yang membuat kopra putih Berkah Mandiri unggul di pasar lokal dan internasional.
+        Empat keunggulan utama yang membuat arang batok Berkah Mandiri unggul untuk BBQ, industri, dan ekspor.
       </p>
     </div>
 
@@ -1236,8 +1321,8 @@ footer {
         <div class="kc-icon">
           <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
         </div>
-        <div class="kc-title">Putih Bersih</div>
-        <p class="kc-desc">Warna putih alami tanpa efek asap. Proses oven modern menghasilkan kopra dengan warna cerah yang konsisten — tidak ada noda hitam akibat asap pembakaran seperti pada metode tradisional.</p>
+        <div class="kc-title">Panas Tinggi</div>
+        <p class="kc-desc">Nilai kalor premium dengan panas stabil untuk hasil bakar yang kuat dan tahan lama, cocok untuk BBQ dan penggunaan industri.</p>
       </div>
 
       <!-- 2. Tidak Bau Asap -->
@@ -1245,8 +1330,8 @@ footer {
         <div class="kc-icon">
           <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
         </div>
-        <div class="kc-title">Tidak Bau Asap</div>
-        <p class="kc-desc">Diproses tanpa asap, lebih higienis. Sistem pengeringan tertutup menggunakan oven modern memastikan kopra bebas dari kontaminasi asap dan bau asing — menghasilkan produk yang murni dan segar.</p>
+        <div class="kc-title">Minim Asap</div>
+        <p class="kc-desc">Proses pirolisis modern menghasilkan arang yang membakar lebih bersih, memberikan pengalaman pengguna yang lebih nyaman dan bebas bau.</p>
       </div>
 
       <!-- 3. Kadar Air Rendah -->
@@ -1254,8 +1339,8 @@ footer {
         <div class="kc-icon">
           <svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
         </div>
-        <div class="kc-title">Kadar Air Rendah</div>
-        <p class="kc-desc">Kadar air rendah (5–7%) lebih awet &amp; tahan lama. Pengeringan dengan suhu terkontrol secara presisi memastikan kadar air optimal sehingga produk tidak mudah berjamur dan memiliki masa simpan yang panjang.</p>
+        <div class="kc-title">Tahan Lama</div>
+        <p class="kc-desc">Kepadatan arang batok memastikan bahan bakar tidak mudah hancur dan memiliki durasi bakar yang lebih panjang.</p>
       </div>
 
       <!-- 4. Tahan Lama -->
@@ -1263,8 +1348,8 @@ footer {
         <div class="kc-icon">
           <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
         </div>
-        <div class="kc-title">Tahan Lama</div>
-        <p class="kc-desc">Kualitas terjaga, tidak mudah berjamur. Kombinasi kadar air rendah dan proses higienis menghasilkan kopra yang stabil dalam penyimpanan jangka panjang, ideal untuk pengiriman ekspor jarak jauh.</p>
+        <div class="kc-title">Ramah Lingkungan</div>
+        <p class="kc-desc">Terbuat dari tempurung kelapa alami, arang batok kami adalah bahan bakar terbarukan yang lebih ramah lingkungan dibanding kayu bakar biasa.</p>
       </div>
 
     </div>
@@ -1280,60 +1365,53 @@ footer {
         <span>Teknologi Produksi</span>
         <div class="section-label-line"></div>
       </div>
-      <h2 class="section-h2 reveal reveal-d1">Diproses dengan <em>Oven Modern.</em></h2>
-      <p class="reveal reveal-d2" style="font-size:14px;font-weight:300;color:rgba(255,255,255,.88);line-height:1.75;margin-top:8px;">
-        Teknologi oven modern menjamin konsistensi kualitas setiap batch produksi — dari suhu pengeringan hingga standar higienitas.
-      </p>
-    </div>
-
-    <div class="proses-highlight reveal reveal-d1">
-      <div class="proses-highlight-inner">
-        <div class="proses-highlight-content">
-          <div class="ph-overline">
-            <div class="ph-overline-line"></div>
-            <span>Metode Unggulan</span>
+      <h2 class="section-h2 reveal reveal-d1">Diproses dengan <em>Pirolisis Modern.</em></h2>
+     
+      <div class="desk-right reveal reveal-d2">
+        <div class="desk-card-big">
+          <div class="desk-card-big-icon">
+            <svg viewBox="0 0 24 24" style="width:22px;height:22px;fill:#e07060;"><path d="M12 2c0 0-6 5-6 10a6 6 0 0 0 12 0C18 7 12 2 12 2z"/></svg>
           </div>
-          <div class="ph-title">Pengeringan <em>Terstandarisasi</em></div>
-          <p class="ph-desc">
-            Tidak seperti metode tradisional yang mengandalkan asap atau sinar matahari, kami menggunakan oven industri modern dengan kontrol suhu digital yang ketat. Proses tertutup ini menjamin setiap butir kopra memenuhi standar kualitas ekspor secara konsisten.
-          </p>
-          <div class="ph-features">
-            <div class="ph-feature">
-              <div class="ph-feature-icon">
-                <svg viewBox="0 0 24 24"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg>
-              </div>
-              <div>
-                <div class="ph-feature-label">Suhu Terkontrol</div>
-                <div class="ph-feature-sub">Pengeringan dengan suhu stabil untuk hasil optimal dan konsisten</div>
-              </div>
-            </div>
-            <div class="ph-feature">
-              <div class="ph-feature-icon">
-                <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              </div>
-              <div>
-                <div class="ph-feature-label">Lebih Higienis</div>
-                <div class="ph-feature-sub">Proses tertutup mengurangi risiko kontaminasi dari lingkungan luar</div>
-              </div>
-            </div>
-            <div class="ph-feature">
-              <div class="ph-feature-icon">
-                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-              </div>
-              <div>
-                <div class="ph-feature-label">Standar Ekspor</div>
-                <div class="ph-feature-sub">Memenuhi standar kualitas internasional untuk pasar global</div>
-              </div>
-            </div>
-          </div>
+          <h3>Teknologi Pirolisis Modern</h3>
+          <p>Pembakaran dilakukan dalam ruang tertutup tanpa oksigen dengan suhu tinggi. Teknologi pirolisis menjaga kualitas arang tetap optimal — menghasilkan karbon murni dengan nilai kalor tinggi.</p>
         </div>
-        <div class="proses-highlight-visual">
-          <img src="../img/assets/oven-modern.jpg" alt="Oven Modern" />
+
+        <div class="desk-mini-row">
+          <div class="desk-mini">
+            <div class="desk-mini-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+            </div>
+            <h4>100% Alami</h4>
+            <p>Bebas bahan kimia, murni dari tempurung kelapa</p>
+          </div>
+          <div class="desk-mini">
+            <div class="desk-mini-icon">
+              <svg viewBox="0 0 24 24"><path d="M2 20h20M5 20V10l7-7 7 7v10"/></svg>
+            </div>
+            <h4>Ramah Lingkungan</h4>
+            <p>Produksi berkelanjutan, mendukung zero waste</p>
+          </div>
+          <div class="desk-mini">
+            <div class="desk-mini-icon">
+              <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <h4>Panas Stabil</h4>
+            <p>Nilai kalor tinggi dan pembakaran merata</p>
+          </div>
+          <div class="desk-mini">
+            <div class="desk-mini-icon">
+              <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            </div>
+            <h4>Siap Kirim</h4>
+            <p>Stok tersedia, pengiriman terjamin ke seluruh Indonesia</p>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+
 
 <!-- ══════════ KEGUNAAN ══════════ -->
 <section id="kegunaan">
@@ -1344,10 +1422,10 @@ footer {
           <div class="section-label-line"></div>
           <span>Aplikasi Produk</span>
         </div>
-        <h2 class="section-h2 on-light reveal reveal-d1">Kegunaan <em>Kopra Putih.</em></h2>
+        <h2 class="section-h2 on-light reveal reveal-d1">Kegunaan <em>Arang Batok.</em></h2>
       </div>
       <p class="kegunaan-header-right reveal reveal-d2">
-        Kopra putih adalah bahan baku serbaguna yang digunakan di berbagai sektor industri bernilai tinggi — dari pangan hingga kecantikan.
+        Arang batok adalah bahan bakar serbaguna yang ideal untuk BBQ, kuliner, industri, camping, dan ekspor.
       </p>
     </div>
 
@@ -1358,8 +1436,8 @@ footer {
         <div class="ku-icon-wrap">
           <svg viewBox="0 0 24 24"><path d="M10 2v2M14 2v2M10 20v2M14 20v2M4 10h2M18 10h2M4 14h2M18 14h2M12 6a6 6 0 1 0 0 12A6 6 0 0 0 12 6z"/></svg>
         </div>
-        <div class="ku-title">Minyak Kelapa</div>
-        <p class="ku-desc">Bahan utama produksi minyak kelapa berkualitas. Kandungan minyak alami kopra putih yang tinggi menghasilkan minyak kelapa murni, VCO (Virgin Coconut Oil), dan RBD Coconut Oil yang banyak dicari industri global.</p>
+        <div class="ku-title">BBQ &amp; Grill</div>
+        <p class="ku-desc">Arang batok kelapa memberikan panas stabil dan pembakaran merata untuk BBQ, grill, dan masak langsung.</p>
       </div>
 
       <!-- 2. Santan & Makanan -->
@@ -1367,8 +1445,8 @@ footer {
         <div class="ku-icon-wrap">
           <svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
         </div>
-        <div class="ku-title">Santan &amp; Makanan</div>
-        <p class="ku-desc">Cocok untuk santan, bahan makanan, dan industri kuliner. Kopra putih yang higienis dan bebas bau asap menghasilkan santan berkualitas premium — ideal untuk industri makanan olahan, restoran, dan produk pangan ekspor.</p>
+        <div class="ku-title">Usaha Kuliner</div>
+        <p class="ku-desc">Sesuai untuk usaha kuliner modern yang membutuhkan bahan bakar konsisten tanpa mengubah cita rasa makanan.</p>
       </div>
 
       <!-- 3. Kosmetik & Skincare -->
@@ -1376,8 +1454,8 @@ footer {
         <div class="ku-icon-wrap">
           <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
         </div>
-        <div class="ku-title">Kosmetik &amp; Skincare</div>
-        <p class="ku-desc">Bahan alami untuk produk kecantikan dan perawatan kulit. Minyak yang diekstrak dari kopra putih menjadi bahan baku premium sabun, krim, losion, dan produk perawatan kulit alami yang semakin diminati pasar global.</p>
+        <div class="ku-title">Industri</div>
+        <p class="ku-desc">Produk ini cocok untuk keperluan industri yang membutuhkan arang batok berkualitas tinggi dan nilai panas konsisten.</p>
       </div>
 
       <!-- 4. Produk Kesehatan -->
@@ -1385,8 +1463,8 @@ footer {
         <div class="ku-icon-wrap">
           <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
         </div>
-        <div class="ku-title">Produk Kesehatan</div>
-        <p class="ku-desc">Digunakan untuk suplemen dan produk kesehatan alami. Kandungan asam lemak rantai menengah (MCT) yang tinggi dalam kopra putih menjadikannya bahan baku suplemen kesehatan, minyak MCT, dan produk wellness premium.</p>
+        <div class="ku-title">Camping</div>
+        <p class="ku-desc">Pilihan ideal untuk camping dan aktivitas outdoor dengan pembakaran stabil dan asap lebih sedikit.</p>
       </div>
 
     </div>
@@ -1404,28 +1482,28 @@ footer {
           <span>Spesifikasi Teknis</span>
         </div>
         <h2 class="section-h2 reveal reveal-d1">Detail <em>Produk.</em></h2>
-        <p class="spek-sub reveal reveal-d2">Spesifikasi teknis kopra putih Berkah Mandiri yang memenuhi standar kualitas ekspor internasional.</p>
+        <p class="spek-sub reveal reveal-d2">Spesifikasi teknis arang batok kelapa Berkah Mandiri yang memenuhi standar kualitas ekspor dan penggunaan industri.</p>
 
         <div class="spek-table reveal reveal-d3">
           <div class="spek-row">
             <div class="spek-key">Nama Produk</div>
-            <div class="spek-val"><strong>Kopra Putih Premium</strong></div>
+            <div class="spek-val"><strong>Arang Batok Kelapa Premium</strong></div>
           </div>
           <div class="spek-row">
-            <div class="spek-key">Kadar Air</div>
-            <div class="spek-val"><strong>5–7%</strong></div>
+            <div class="spek-key">Nilai Panas</div>
+            <div class="spek-val"><strong>Tinggi & Stabil</strong></div>
           </div>
           <div class="spek-row">
-            <div class="spek-key">Warna</div>
-            <div class="spek-val">Putih bersih alami</div>
+            <div class="spek-key">Kepadatan</div>
+            <div class="spek-val">Padat & tahan lama</div>
           </div>
           <div class="spek-row">
             <div class="spek-key">Metode Proses</div>
-            <div class="spek-val">Oven modern (bukan asap)</div>
+            <div class="spek-val">Pirolisis modern</div>
           </div>
           <div class="spek-row">
-            <div class="spek-key">Bau</div>
-            <div class="spek-val">Bebas bau asap</div>
+            <div class="spek-key">Asap</div>
+            <div class="spek-val">Minim asap</div>
           </div>
           <div class="spek-row">
             <div class="spek-key">Kualitas</div>
@@ -1452,7 +1530,7 @@ footer {
             <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
           </div>
           <h3>Siap Supply Partai Besar &amp; Kecil</h3>
-          <p>Kami melayani kebutuhan kopra putih dalam skala besar (kontainer/ton) maupun skala kecil untuk pengusaha dan industri. Hubungi kami untuk diskusi volume dan harga terbaik.</p>
+          <p>Kami melayani kebutuhan arang batok kelapa dalam skala besar maupun kecil. Hubungi kami untuk diskusi volume, kemasan, dan harga terbaik.</p>
         </div>
 
         <div class="spek-card reveal reveal-d2">
@@ -1569,8 +1647,8 @@ footer {
           <span>Hubungi Kami</span>
           <div class="section-label-line"></div>
         </div>
-        <h2 class="section-h2 reveal reveal-d1">Siap <em>Supply</em> Kopra Putih.</h2>
-        <p class="reveal reveal-d2">Hubungi Alesha sekarang untuk mendapatkan penawaran terbaik kopra putih premium — siap supply partai besar maupun kecil, untuk industri dan ekspor.</p>
+        <h2 class="section-h2 reveal reveal-d1">Siap <em>Supply</em> Arang Batok.</h2>
+        <p class="reveal reveal-d2">Hubungi Alesha sekarang untuk mendapatkan penawaran terbaik arang batok premium — siap supply partai besar maupun kecil, untuk industri dan ekspor.</p>
       </div>
 
       <div class="kontak-panel reveal reveal-d2">
@@ -1610,7 +1688,7 @@ footer {
               Respon Cepat
             </div>
           </div>
-          <a href="https://wa.me/628138887073?text=Halo%20Alesha%2C%20saya%20ingin%20mengetahui%20lebih%20lanjut%20tentang%20Kopra%20Putih%20Premium%20Berkah%20Mandiri." target="_blank" class="btn-wa">
+          <a href="https://wa.me/628138887073?text=Halo%20Alesha%2C%20saya%20ingin%20mengetahui%20lebih%20lanjut%20tentang%20Arang%20Batok%20Kelapa%20Premium%20Berkah%20Mandiri." target="_blank" class="btn-wa">
             <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
             Hubungi Kami Sekarang
           </a>
@@ -1648,8 +1726,8 @@ footer {
     <div>
       <div class="footer-col-title">Produk Kami</div>
       <ul class="footer-links">
-        <li><a href="kopra.html" style="color:var(--brass-lt);">Kopra Putih ✦</a></li>
-        <li><a href="arang-batok.html">Arang Batok</a></li>
+        <li><a href="kopra.html">Kopra Putih</a></li>
+        <li><a href="arang-batok.html" style="color:var(--brass-lt);">Arang Batok ✦</a></li>
         <li><a href="briket-kelapa.html">Briket Kelapa</a></li>
         <li><a href="cocobristle.html">Cocobristle</a></li>
         <li><a href="cocofiber.html">Cocofiber</a></li>
@@ -1749,3 +1827,4 @@ document.addEventListener('click', (e) => {
 </script>
 </body>
 </html>
+

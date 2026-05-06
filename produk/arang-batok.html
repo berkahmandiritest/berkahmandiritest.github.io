@@ -650,7 +650,115 @@ section { scroll-margin-top: 68px; }
 }
 .ph-feature-sub { font-size: 11.5px; color: rgba(255,255,255,.78); font-weight: 300; }
 
-/* Oven visual placeholder */
+/* ══════════════════════════════════════════════
+   LANGKAH PROSES PRODUKSI (5-step flow)
+   ══════════════════════════════════════════════ */
+.proses-steps {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  margin-top: 56px;
+  background: var(--g900);
+  border: 1px solid rgba(255,255,255,.06);
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  position: relative;
+}
+.proses-steps::before {
+  content: ''; position: absolute;
+  top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, var(--brass-lt), var(--brass), transparent);
+}
+
+.proses-step {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 36px 24px 32px;
+  position: relative;
+  transition: background .25s;
+}
+.proses-step:hover { background: var(--g800); }
+.proses-step:not(:last-of-type) {
+  border-right: 1px solid rgba(255,255,255,.05);
+}
+
+.ps-num {
+  position: absolute;
+  top: 16px; left: 16px;
+  font-size: 10px; font-weight: 600;
+  letter-spacing: .12em;
+  color: var(--brass-lt);
+  background: var(--brass-dim);
+  border: 1px solid var(--brass-bdr);
+  border-radius: 99px;
+  width: 22px; height: 22px;
+  display: flex; align-items: center; justify-content: center;
+}
+
+.ps-icon {
+  width: 52px; height: 52px;
+  background: rgba(154,124,58,.08);
+  border: 1px solid var(--brass-bdr);
+  border-radius: var(--r-md);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 18px;
+  flex-shrink: 0;
+}
+.ps-icon svg {
+  width: 24px; height: 24px;
+  stroke: var(--brass-lt); fill: none; stroke-width: 1.8;
+}
+
+.ps-body { display: flex; flex-direction: column; gap: 8px; }
+.ps-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 15px; font-weight: 500;
+  color: var(--white); line-height: 1.2;
+  letter-spacing: -.01em;
+}
+.ps-desc {
+  font-size: 12.5px; font-weight: 300;
+  color: rgba(255,255,255,.7); line-height: 1.65;
+}
+
+.ps-arrow {
+  display: flex; align-items: center; justify-content: center;
+  padding: 0 4px; flex-shrink: 0; align-self: center;
+}
+.ps-arrow svg {
+  width: 18px; height: 18px;
+  stroke: var(--brass-lt); fill: none; stroke-width: 2;
+  opacity: .55;
+}
+
+@media (max-width: 900px) {
+  .proses-steps {
+    flex-direction: column;
+    gap: 0;
+  }
+  .proses-step {
+    flex-direction: row;
+    text-align: left;
+    align-items: flex-start;
+    gap: 16px;
+    border-right: none !important;
+    border-bottom: 1px solid rgba(255,255,255,.05);
+  }
+  .proses-step:last-of-type { border-bottom: none; }
+  .ps-num { top: 16px; left: 16px; }
+  .ps-icon { margin-bottom: 0; flex-shrink: 0; }
+  .ps-arrow {
+    padding: 0 0 0 24px;
+    transform: rotate(90deg);
+    align-self: auto;
+  }
+}
+
+/* ══════════════════════════════════════════════
+   OVEN VISUAL PLACEHOLDER
 .oven-visual {
   width: 200px; height: 260px;
   background: var(--g700);
@@ -1408,6 +1516,84 @@ footer {
         </div>
       </div>
     </div>
+
+    <!-- ══ LANGKAH PROSES ══ -->
+    <div class="proses-steps reveal reveal-d3">
+
+      <div class="proses-step">
+        <div class="ps-num">1</div>
+        <div class="ps-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/><ellipse cx="12" cy="12" rx="3" ry="5" fill="none" stroke-width="1.5"/><path d="M8 6c0-2.2 1.8-4 4-4s4 1.8 4 4" fill="none"/></svg>
+        </div>
+        <div class="ps-body">
+          <div class="ps-title">Bahan Baku Pilihan</div>
+          <p class="ps-desc">Tempurung kelapa dipilih dari bahan terbaik untuk memastikan kualitas arang yang optimal.</p>
+        </div>
+      </div>
+
+      <div class="ps-arrow">
+        <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </div>
+
+      <div class="proses-step">
+        <div class="ps-num">2</div>
+        <div class="ps-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2c0 0-6 5-6 10a6 6 0 0 0 12 0C18 7 12 2 12 2z"/></svg>
+        </div>
+        <div class="ps-body">
+          <div class="ps-title">Karbonisasi (Pirolisis)</div>
+          <p class="ps-desc">Dibakar dalam ruang tertutup tanpa oksigen dengan suhu tinggi. Teknologi pirolisis menjaga kualitas arang tetap optimal.</p>
+        </div>
+      </div>
+
+      <div class="ps-arrow">
+        <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </div>
+
+      <div class="proses-step">
+        <div class="ps-num">3</div>
+        <div class="ps-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+        </div>
+        <div class="ps-body">
+          <div class="ps-title">Pendinginan Alami</div>
+          <p class="ps-desc">Arang didinginkan secara alami untuk menjaga kekuatan dan kestabilan bara sehingga kualitas terjaga maksimal.</p>
+        </div>
+      </div>
+
+      <div class="ps-arrow">
+        <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </div>
+
+      <div class="proses-step">
+        <div class="ps-num">4</div>
+        <div class="ps-icon">
+          <svg viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        </div>
+        <div class="ps-body">
+          <div class="ps-title">Sortir Arang Batok</div>
+          <p class="ps-desc">Arang batok kelapa disortir untuk memastikan kualitas terbaik sebelum dikemas dan dikirimkan ke pelanggan.</p>
+        </div>
+      </div>
+
+      <div class="ps-arrow">
+        <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </div>
+
+      <div class="proses-step">
+        <div class="ps-num">5</div>
+        <div class="ps-icon">
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+        <div class="ps-body">
+          <div class="ps-title">Siap Digunakan</div>
+          <p class="ps-desc">Arang batok kelapa berkualitas premium siap untuk kebutuhan Anda — BBQ, industri, shisha, maupun ekspor.</p>
+        </div>
+      </div>
+
+    </div>
+    <!-- /LANGKAH PROSES -->
+
   </div>
 </section>
 

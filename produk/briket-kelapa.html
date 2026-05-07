@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kopra Putih Premium — Berkah Mandiri</title>
+<title>Briket Batok Kelapa Premium — Berkah Mandiri</title>
 <link rel="icon" href="../img/assets/bm-logo.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -234,11 +234,12 @@ img { max-width: 100%; display: block; }
   padding: 148px 48px 80px;
   position: relative; overflow: hidden;
   background-image:
-    linear-gradient(rgba(11,21,18,.70), rgba(11,21,18,.70)),
-    url("../img/assets/home-kopra.jpg");
+    linear-gradient(rgba(11,21,18,.72), rgba(11,21,18,.72)),
+    url("../img/assets/home-briket-kelapa.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-color: #0e1a14;
 }
 
 #beranda::before {
@@ -375,7 +376,7 @@ section { scroll-margin-top: 68px; }
 .section-h2.on-light em { color: var(--g700); }
 
 /* ══════════════════════════════════════════════
-   APA ITU KOPRA PUTIH (dark, intro)
+   APA ITU BRIKET (dark, intro)
    ══════════════════════════════════════════════ */
 #apa-itu {
   background: var(--g900);
@@ -446,9 +447,10 @@ section { scroll-margin-top: 68px; }
   display: flex; flex-direction: column; align-items: center;
   justify-content: center; gap: 16px;
   color: rgba(255,255,255,.78);
+  width: 100%; height: 100%; position: absolute; inset: 0;
 }
-.apa-visual-placeholder svg { width: 48px; height: 48px; stroke: var(--brass-bdr); fill: none; stroke-width: 1; }
-.apa-visual-placeholder span { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; }
+.apa-visual-placeholder svg { width: 64px; height: 64px; stroke: var(--brass-bdr); fill: none; stroke-width: .8; }
+.apa-visual-placeholder span { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--g500); }
 
 .apa-visual-footer {
   padding: 20px 24px;
@@ -544,104 +546,139 @@ section { scroll-margin-top: 68px; }
 }
 .proses-header .section-label { justify-content: center; }
 
-/* Oven modern highlight */
-.proses-highlight {
+.desk-right { display: flex; flex-direction: column; gap: 12px; }
+
+.desk-card-big {
+  background: var(--g800);
+  border: 1px solid rgba(255,255,255,.06);
+  border-radius: var(--r-lg);
+  padding: 32px;
+  position: relative; overflow: hidden;
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+}
+.desk-card-big::before {
+  content: ''; position: absolute;
+  top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, var(--brass-lt), transparent);
+}
+.desk-card-big-icon {
+  width: 48px; height: 48px;
+  background: rgba(154,124,58,.12);
+  border: 1px solid var(--brass-bdr);
+  border-radius: var(--r-sm);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 16px;
+}
+.desk-card-big-icon svg { width: 22px; height: 22px; stroke: var(--brass-lt); fill: none; stroke-width: 1.8; }
+.desk-card-big h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px; font-weight: 500;
+  color: var(--white); margin-bottom: 8px;
+}
+.desk-card-big p { font-size: 14px; color: rgba(255,255,255,.84); font-weight: 300; line-height: 1.7; }
+
+.desk-mini-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.desk-mini {
+  background: var(--g900);
+  border: 1px solid rgba(255,255,255,.06);
+  border-radius: var(--r-md);
+  padding: 20px 18px;
+  transition: border-color .2s;
+}
+.desk-mini:hover { border-color: rgba(255,255,255,.12); }
+.desk-mini-icon {
+  width: 34px; height: 34px;
+  background: rgba(154,124,58,.1);
+  border: 1px solid rgba(154,124,58,.15);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 12px;
+}
+.desk-mini-icon svg { width: 16px; height: 16px; stroke: var(--brass); fill: none; stroke-width: 2; }
+.desk-mini h4 { font-size: 14.5px; font-weight: 600; color: var(--g100); margin-bottom: 3px; }
+.desk-mini p { font-size: 13px; color: rgba(255,255,255,.7); font-weight: 300; line-height: 1.5; }
+
+/* Proses steps */
+.proses-steps {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  margin-top: 56px;
   background: var(--g900);
   border: 1px solid rgba(255,255,255,.06);
   border-radius: var(--r-xl);
   overflow: hidden;
-  margin-bottom: 48px;
   position: relative;
 }
-.proses-highlight::before {
+.proses-steps::before {
   content: ''; position: absolute;
   top: 0; left: 0; right: 0; height: 2px;
   background: linear-gradient(90deg, var(--brass-lt), var(--brass), transparent);
 }
 
-.proses-highlight-inner {
-  display: grid; grid-template-columns: 1fr 1.2fr;
-  align-items: stretch;
+.proses-step {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 36px 24px 32px;
+  position: relative;
+  transition: background .25s;
 }
-.proses-highlight-content {
-  padding: 52px 48px;
-  display: flex; flex-direction: column; justify-content: center;
-}
-.proses-highlight-visual {
-  background: linear-gradient(135deg, var(--g800) 0%, var(--g900) 100%);
-  border-left: 1px solid rgba(255,255,255,.05);
-  display: flex; align-items: center; justify-content: center;
-  padding: 40px;
-  min-height: 320px;
-}
-.proses-highlight-visual img {
-  width: 100%;
-  height: auto;
-  max-width: 380px;
-  border-radius: var(--r-lg);
-  box-shadow: 0 22px 54px rgba(0,0,0,.2);
-  object-fit: cover;
+.proses-step:hover { background: var(--g800); }
+.proses-step:not(:last-of-type) {
+  border-right: 1px solid rgba(255,255,255,.05);
 }
 
-.ph-overline {
-  display: inline-flex; align-items: center; gap: 8px;
-  margin-bottom: 16px;
-  font-size: 10px; font-weight: 500;
-  letter-spacing: .16em; text-transform: uppercase;
+.ps-num {
+  position: absolute;
+  top: 16px; left: 16px;
+  font-size: 10px; font-weight: 600;
+  letter-spacing: .12em;
   color: var(--brass-lt);
-}
-.ph-overline-line { width: 16px; height: 1px; background: var(--brass-lt); }
-
-.ph-title {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(24px, 3vw, 36px);
-  font-weight: 500; line-height: 1.15;
-  letter-spacing: -.02em; color: var(--white);
-  margin-bottom: 16px;
-}
-.ph-title em { font-style: italic; color: var(--g300); }
-
-.ph-desc {
-  font-size: 14px; font-weight: 300; line-height: 1.8;
-  color: rgba(255,255,255,.88); margin-bottom: 32px;
+  background: var(--brass-dim);
+  border: 1px solid var(--brass-bdr);
+  border-radius: 99px;
+  width: 22px; height: 22px;
+  display: flex; align-items: center; justify-content: center;
 }
 
-.ph-features {
-  display: flex; flex-direction: column; gap: 0;
-  border-top: 1px solid rgba(255,255,255,.06);
-}
-.ph-feature {
-  display: flex; align-items: center; gap: 14px;
-  padding: 14px 0;
-  border-bottom: 1px solid rgba(255,255,255,.04);
-}
-.ph-feature-icon {
-  width: 36px; height: 36px;
+.ps-icon {
+  width: 52px; height: 52px;
   background: rgba(154,124,58,.08);
   border: 1px solid var(--brass-bdr);
-  border-radius: 8px;
+  border-radius: var(--r-md);
   display: flex; align-items: center; justify-content: center;
+  margin-bottom: 18px;
   flex-shrink: 0;
 }
-.ph-feature-icon svg { width: 16px; height: 16px; stroke: var(--brass-lt); fill: none; stroke-width: 1.8; }
-.ph-feature-label {
-  font-size: 13px; font-weight: 500; color: var(--g200, #c9ddd3);
-  margin-bottom: 2px;
+.ps-icon svg {
+  width: 24px; height: 24px;
+  stroke: var(--brass-lt); fill: none; stroke-width: 1.8;
 }
-.ph-feature-sub { font-size: 11.5px; color: rgba(255,255,255,.78); font-weight: 300; }
 
-/* Oven visual placeholder */
-.oven-visual {
-  width: 200px; height: 260px;
-  background: var(--g700);
-  border: 1px solid rgba(255,255,255,.08);
-  border-radius: var(--r-lg);
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center; gap: 12px;
-  color: var(--g500);
+.ps-body { display: flex; flex-direction: column; gap: 8px; }
+.ps-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 15px; font-weight: 500;
+  color: var(--white); line-height: 1.2;
+  letter-spacing: -.01em;
 }
-.oven-visual svg { width: 60px; height: 60px; stroke: var(--brass-bdr); fill: none; stroke-width: .8; }
-.oven-visual span { font-size: 10px; letter-spacing: .1em; text-transform: uppercase; }
+.ps-desc {
+  font-size: 12.5px; font-weight: 300;
+  color: rgba(255,255,255,.7); line-height: 1.65;
+}
+
+.ps-arrow {
+  display: flex; align-items: center; justify-content: center;
+  padding: 0 4px; flex-shrink: 0; align-self: center;
+}
+.ps-arrow svg {
+  width: 18px; height: 18px;
+  stroke: var(--brass-lt); fill: none; stroke-width: 2;
+  opacity: .55;
+}
 
 /* ══════════════════════════════════════════════
    KEGUNAAN (ivory, 4-grid)
@@ -1038,11 +1075,9 @@ footer {
   #beranda { padding: 100px 28px 64px; }
 
   .apa-grid { grid-template-columns: 1fr; gap: 40px; }
-  .proses-highlight-inner { grid-template-columns: 1fr; }
-  .proses-highlight-visual { display: flex; }
   .kegunaan-grid { grid-template-columns: 1fr 1fr; }
   .keunggulan-grid { grid-template-columns: 1fr 1fr; }
-  .produk-lain-grid { grid-template-columns: repeat(3, 1fr); }
+  .produk-lain-grid { grid-template-columns: repeat(2, 1fr); }
   .spek-grid { grid-template-columns: 1fr; gap: 48px; }
 
   .footer-inner { grid-template-columns: 1fr 1fr; gap: 36px; }
@@ -1089,24 +1124,41 @@ footer {
     display: flex !important; width: 100%; justify-content: center;
   }
 
-  #beranda { padding: 88px 20px 52px; min-height: auto; }
-  .hero-h1 { font-size: clamp(40px, 10vw, 56px); }
+  #beranda { padding: 90px 20px 60px; min-height: 80vh; }
+  .hero-h1 { font-size: clamp(36px, 9vw, 56px); }
   .hero-desc { font-size: 16px; }
-  .hero-actions { flex-direction: column; width: 100%; }
-  .btn-primary, .btn-ghost { width: 100%; max-width: 300px; justify-content: center; }
-  .hero-stats { flex-direction: row; gap: 0; padding-top: 28px; }
-  .hero-stats .stat-item {
-    padding: 0 16px; border-right: 1px solid rgba(255,255,255,.06);
-    border-bottom: none;
-  }
-  .hero-stats .stat-item:last-child { border-right: none; }
+  .hero-stats { gap: 0; overflow-x: auto; }
+  .hero-stats .stat-item { padding: 0 20px; flex-shrink: 0; }
+  .stat-num { font-size: 26px; }
 
   .section-wrap { padding: 56px 20px; }
-  .apa-grid { grid-template-columns: 1fr; }
+
+  .apa-grid { grid-template-columns: 1fr; gap: 32px; }
   .keunggulan-grid { grid-template-columns: 1fr; }
   .kegunaan-grid { grid-template-columns: 1fr; }
   .produk-lain-grid { grid-template-columns: 1fr 1fr; }
   .spek-grid { grid-template-columns: 1fr; gap: 32px; }
+  .desk-mini-row { grid-template-columns: 1fr 1fr; }
+
+  .proses-steps {
+    flex-direction: column;
+    gap: 0;
+  }
+  .proses-step {
+    flex-direction: row;
+    text-align: left;
+    align-items: flex-start;
+    gap: 16px;
+    border-right: none !important;
+    border-bottom: 1px solid rgba(255,255,255,.05);
+    padding: 24px 20px 24px 52px;
+  }
+  .proses-step:last-of-type { border-bottom: none; }
+  .ps-num { top: 24px; left: 16px; }
+  .ps-icon { margin-bottom: 0; flex-shrink: 0; }
+  .ps-arrow {
+    display: none;
+  }
 
   .kontak-top { grid-template-columns: 1fr; }
   .kontak-divider-v { display: none; }
@@ -1115,21 +1167,18 @@ footer {
   .kontak-bottom { flex-direction: column; padding: 24px; gap: 16px; }
   .btn-wa { width: 100%; justify-content: center; }
 
-  .footer-inner { grid-template-columns: 1fr; gap: 28px; }
   footer { padding: 40px 20px 20px; }
-  .footer-bottom { flex-direction: column; gap: 6px; font-size: 12px; }
-  .footer-brand-desc { max-width: 100%; }
+  .footer-inner { grid-template-columns: 1fr; gap: 28px; }
 
-  .proses-highlight-content { padding: 32px 24px; }
+  .produk-lain-header { flex-direction: column; align-items: flex-start; gap: 16px; }
 }
-
 </style>
 </head>
 <body>
 
 <!-- ══════════ NAVBAR ══════════ -->
 <header id="navbar">
-  <a class="nav-logo" href="../index.html">
+  <a class="nav-logo" href="../index.html#beranda">
     <img src="../img/assets/bm-logo.png" alt="BM Logo" class="nav-logo-mark">
     <div class="nav-logo-text">
       <strong>Berkah Mandiri</strong>
@@ -1142,18 +1191,18 @@ footer {
       <li><a href="../index.html#beranda"         class="nav-link">Beranda</a></li>
       <li><a href="../index.html#pohon-kehidupan" class="nav-link">Tentang Kelapa</a></li>
       <li class="has-dropdown">
-        <a href="../index.html#produk" class="nav-link">Produk</a>
+        <a href="../index.html#produk" class="nav-link active">Produk</a>
         <ul class="nav-dropdown">
           <li><a href="kopra.html" class="nav-link">Kopra Putih</a></li>
           <li><a href="arang-batok.html" class="nav-link">Arang Batok</a></li>
-          <li><a href="briket-kelapa.html" class="nav-link">Briket Kelapa</a></li>
+          <li><a href="briket-kelapa.html" class="nav-link active">Briket Kelapa</a></li>
           <li><a href="cocobristle.html" class="nav-link">Cocobristle</a></li>
           <li><a href="cocofiber.html" class="nav-link">Cocofiber</a></li>
           <li><a href="cocopeat.html" class="nav-link">Cocopeat</a></li>
         </ul>
       </li>
       <li><a href="../index.html#tentang"         class="nav-link">Tentang Kami</a></li>
-      <li><a href="#kontak"                        class="nav-link">Kontak</a></li>
+      <li><a href="../index.html#kontak"          class="nav-link">Kontak</a></li>
     </ul>
     <a href="https://wa.me/628138887073" target="_blank" class="nav-cta mobile-nav-cta">
       <svg fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
@@ -1171,13 +1220,13 @@ footer {
   </button>
 </header>
 
-<!-- Breadcrumb -->
+<!-- ══════════ BREADCRUMB ══════════ -->
 <div class="breadcrumb">
   <a href="../index.html">Beranda</a>
   <span class="breadcrumb-sep">›</span>
   <a href="../index.html#produk">Produk</a>
   <span class="breadcrumb-sep">›</span>
-  <span class="breadcrumb-current">Kopra Putih</span>
+  <span class="breadcrumb-current">Briket Batok Kelapa</span>
 </div>
 
 <!-- ══════════ HERO ══════════ -->
@@ -1189,15 +1238,15 @@ footer {
     </div>
 
     <h1 class="hero-h1 reveal reveal-d2">
-      Kopra Putih<em>Premium.</em>
+      Briket Batok<em>Kelapa Premium.</em>
     </h1>
 
     <p class="hero-desc reveal reveal-d3">
-      Daging kelapa kering berkualitas tinggi yang diproses dengan metode oven modern — putih bersih, higienis, kadar air rendah, dan siap supply untuk industri lokal maupun ekspor internasional.
+      Briket tempurung kelapa pilihan dengan teknologi pirolisis modern — padat, tahan lama, minim asap, dan 100% natural untuk BBQ, shisha, dan industri.
     </p>
 
     <div class="hero-actions reveal reveal-d4">
-      <a href="https://wa.me/628138887073?text=Halo%20Alesha%2C%20saya%20ingin%20mengetahui%20lebih%20lanjut%20tentang%20Kopra%20Putih%20Premium%20Berkah%20Mandiri." target="_blank" class="btn-primary">
+      <a href="https://wa.me/628138887073?text=Halo%20Alesha%2C%20saya%20ingin%20memesan%20Briket%20Batok%20Kelapa%20Premium%20Berkah%20Mandiri." target="_blank" class="btn-primary">
         Minta Penawaran
         <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
@@ -1209,22 +1258,22 @@ footer {
 
     <div class="hero-stats reveal reveal-d5">
       <div class="stat-item">
-        <div class="stat-num">5–7%</div>
-        <div class="stat-label">Kadar Air</div>
+        <div class="stat-num">Padat</div>
+        <div class="stat-label">Tahan Lama</div>
       </div>
       <div class="stat-item">
-        <div class="stat-num">Putih</div>
-        <div class="stat-label">Warna Bersih</div>
+        <div class="stat-num">Minim</div>
+        <div class="stat-label">Asap</div>
       </div>
       <div class="stat-item">
-        <div class="stat-num">Ekspor</div>
-        <div class="stat-label">Standar Kualitas</div>
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Natural</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══════════ APA ITU KOPRA PUTIH ══════════ -->
+<!-- ══════════ APA ITU BRIKET KELAPA ══════════ -->
 <section id="apa-itu">
   <div class="section-wrap">
     <div class="apa-grid">
@@ -1234,29 +1283,29 @@ footer {
           <div class="section-label-line"></div>
           <span>Tentang Produk</span>
         </div>
-        <h2 class="section-h2 reveal reveal-d1">Apa Itu <em>Kopra Putih?</em></h2>
+        <h2 class="section-h2 reveal reveal-d1">Apa Itu <em>Briket Kelapa?</em></h2>
         <p class="apa-body reveal reveal-d2">
-          Kopra putih adalah daging kelapa kering yang diproses dengan metode oven modern sehingga lebih bersih, higienis, dan berkualitas tinggi.
+          Briket batok kelapa adalah bahan bakar padat premium yang dibuat dari tempurung kelapa pilihan melalui proses karbonisasi pirolisis modern, kemudian dicetak menjadi bentuk kubus atau sarang lebah yang seragam.
         </p>
         <p class="apa-body reveal reveal-d2">
-          Berbeda dengan kopra tradisional yang dikeringkan menggunakan asap, kopra putih Berkah Mandiri diproses dalam kondisi tertutup dengan suhu terkontrol — menghasilkan produk dengan warna putih alami, tanpa bau asap, dan tahan lama.
+          Berbeda dengan arang batok biasa, briket kelapa memiliki kepadatan lebih tinggi, durasi bakar lebih panjang, dan minim asap — menjadikannya pilihan utama untuk shisha/hookah, BBQ premium, dan keperluan industri.
         </p>
         <p class="apa-body reveal reveal-d2">
-          Kopra putih merupakan bahan baku utama untuk produksi minyak kelapa premium, santan, kosmetik, produk kesehatan, dan berbagai industri kuliner bernilai tinggi.
+          Briket Berkah Mandiri menggunakan bahan baku tempurung kelapa 100% alami tanpa campuran bahan kimia berbahaya, ramah lingkungan, dan siap supply untuk partai kecil maupun besar.
         </p>
 
         <div class="apa-tags reveal reveal-d3">
           <div class="apa-tag">
             <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
-            Kualitas Ekspor
+            Kualitas Terjamin
+          </div>
+          <div class="apa-tag">
+            <svg viewBox="0 0 24 24"><path d="M12 2c0 0-6 5-6 10a6 6 0 0 0 12 0C18 7 12 2 12 2z"/></svg>
+            Minim Asap
           </div>
           <div class="apa-tag">
             <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
             Siap Ekspor
-          </div>
-          <div class="apa-tag">
-            <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-            Higienis
           </div>
           <div class="apa-tag">
             <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
@@ -1268,11 +1317,11 @@ footer {
       <div class="apa-right reveal reveal-d2">
         <div class="apa-visual-card">
           <div class="apa-visual-img">
-            <img src="../img/assets/produk-kopra.jpg" alt="Kopra Putih Premium Berkah Mandiri" class="apa-visual-img-inner"
+            <img src="../img/assets/produk-briket-kelapa.jpg" alt="Briket Batok Kelapa Premium Berkah Mandiri" class="apa-visual-img-inner"
               onerror="this.style.display='none'; this.parentElement.querySelector('.apa-visual-placeholder').style.display='flex';">
             <div class="apa-visual-placeholder" style="display:none;">
-              <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
-              <span>Kopra Putih Premium</span>
+              <svg viewBox="0 0 24 24"><rect x="2" y="2" width="8" height="8" rx="1"/><rect x="14" y="2" width="8" height="8" rx="1"/><rect x="2" y="14" width="8" height="8" rx="1"/><rect x="14" y="14" width="8" height="8" rx="1"/></svg>
+              <span>Briket Batok Kelapa Premium</span>
             </div>
           </div>
           <div class="apa-visual-footer">
@@ -1298,48 +1347,44 @@ footer {
         <span>Keunggulan Produk</span>
         <div class="section-label-line"></div>
       </div>
-      <h2 class="section-h2 on-light reveal reveal-d1">Keunggulan <em>Kopra Putih.</em></h2>
+      <h2 class="section-h2 on-light reveal reveal-d1">Keunggulan <em>Briket Kelapa.</em></h2>
       <p class="reveal reveal-d2" style="font-size:14px;font-weight:300;color:var(--body-txt);line-height:1.75;margin-top:8px;">
-        Empat keunggulan utama yang membuat kopra putih Berkah Mandiri unggul di pasar lokal dan internasional.
+        Empat keunggulan utama yang membuat briket kelapa Berkah Mandiri unggul untuk BBQ, shisha, dan industri.
       </p>
     </div>
 
     <div class="keunggulan-grid">
 
-      <!-- 1. Putih Bersih -->
       <div class="keunggulan-card reveal">
         <div class="kc-icon">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2c0 0-6 5-6 10a6 6 0 0 0 12 0C18 7 12 2 12 2z"/></svg>
         </div>
-        <div class="kc-title">Putih Bersih</div>
-        <p class="kc-desc">Warna putih alami tanpa efek asap. Proses oven modern menghasilkan kopra dengan warna cerah yang konsisten — tidak ada noda hitam akibat asap pembakaran seperti pada metode tradisional.</p>
+        <div class="kc-title">Tahan Lama</div>
+        <p class="kc-desc">Kepadatan briket yang tinggi menghasilkan durasi bakar jauh lebih panjang — hingga 2–3 jam — dibanding arang batok biasa, menghemat bahan bakar Anda.</p>
       </div>
 
-      <!-- 2. Tidak Bau Asap -->
       <div class="keunggulan-card reveal reveal-d1">
         <div class="kc-icon">
           <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
         </div>
-        <div class="kc-title">Tidak Bau Asap</div>
-        <p class="kc-desc">Diproses tanpa asap, lebih higienis. Sistem pengeringan tertutup menggunakan oven modern memastikan kopra bebas dari kontaminasi asap dan bau asing — menghasilkan produk yang murni dan segar.</p>
+        <div class="kc-title">Minim Asap</div>
+        <p class="kc-desc">Proses pirolisis tertutup menghasilkan briket yang membakar bersih tanpa asap tebal, nyaman untuk shisha/hookah, BBQ indoor maupun outdoor.</p>
       </div>
 
-      <!-- 3. Kadar Air Rendah -->
       <div class="keunggulan-card reveal reveal-d2">
         <div class="kc-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+          <svg viewBox="0 0 24 24"><rect x="2" y="2" width="8" height="8" rx="1"/><rect x="14" y="2" width="8" height="8" rx="1"/><rect x="2" y="14" width="8" height="8" rx="1"/><rect x="14" y="14" width="8" height="8" rx="1"/></svg>
         </div>
-        <div class="kc-title">Kadar Air Rendah</div>
-        <p class="kc-desc">Kadar air rendah (5–7%) lebih awet &amp; tahan lama. Pengeringan dengan suhu terkontrol secara presisi memastikan kadar air optimal sehingga produk tidak mudah berjamur dan memiliki masa simpan yang panjang.</p>
+        <div class="kc-title">Bentuk Seragam</div>
+        <p class="kc-desc">Dicetak dalam bentuk kubus atau sarang lebah yang presisi dan seragam, memudahkan pengaturan dan memberikan distribusi panas yang merata saat pembakaran.</p>
       </div>
 
-      <!-- 4. Tahan Lama -->
       <div class="keunggulan-card reveal reveal-d3">
         <div class="kc-icon">
           <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
         </div>
-        <div class="kc-title">Tahan Lama</div>
-        <p class="kc-desc">Kualitas terjaga, tidak mudah berjamur. Kombinasi kadar air rendah dan proses higienis menghasilkan kopra yang stabil dalam penyimpanan jangka panjang, ideal untuk pengiriman ekspor jarak jauh.</p>
+        <div class="kc-title">100% Natural</div>
+        <p class="kc-desc">Dibuat murni dari tempurung kelapa pilihan tanpa campuran bahan kimia berbahaya, aman untuk makanan, ramah lingkungan, dan bersertifikat alami.</p>
       </div>
 
     </div>
@@ -1355,57 +1400,124 @@ footer {
         <span>Teknologi Produksi</span>
         <div class="section-label-line"></div>
       </div>
-      <h2 class="section-h2 reveal reveal-d1">Diproses dengan <em>Oven Modern.</em></h2>
-      <p class="reveal reveal-d2" style="font-size:14px;font-weight:300;color:rgba(255,255,255,.88);line-height:1.75;margin-top:8px;">
-        Teknologi oven modern menjamin konsistensi kualitas setiap batch produksi — dari suhu pengeringan hingga standar higienitas.
-      </p>
-    </div>
+      <h2 class="section-h2 reveal reveal-d1">Diproses dengan <em>Pirolisis Modern.</em></h2>
 
-    <div class="proses-highlight reveal reveal-d1">
-      <div class="proses-highlight-inner">
-        <div class="proses-highlight-content">
-          <div class="ph-overline">
-            <div class="ph-overline-line"></div>
-            <span>Metode Unggulan</span>
+      <div class="desk-right reveal reveal-d2" style="max-width:700px; margin: 32px auto 0; text-align:left;">
+        <div class="desk-card-big">
+          <div class="desk-card-big-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2c0 0-6 5-6 10a6 6 0 0 0 12 0C18 7 12 2 12 2z"/></svg>
           </div>
-          <div class="ph-title">Pengeringan <em>Terstandarisasi</em></div>
-          <p class="ph-desc">
-            Tidak seperti metode tradisional yang mengandalkan asap atau sinar matahari, kami menggunakan oven industri modern dengan kontrol suhu digital yang ketat. Proses tertutup ini menjamin setiap butir kopra memenuhi standar kualitas ekspor secara konsisten.
-          </p>
-          <div class="ph-features">
-            <div class="ph-feature">
-              <div class="ph-feature-icon">
-                <svg viewBox="0 0 24 24"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg>
-              </div>
-              <div>
-                <div class="ph-feature-label">Suhu Terkontrol</div>
-                <div class="ph-feature-sub">Pengeringan dengan suhu stabil untuk hasil optimal dan konsisten</div>
-              </div>
-            </div>
-            <div class="ph-feature">
-              <div class="ph-feature-icon">
-                <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              </div>
-              <div>
-                <div class="ph-feature-label">Lebih Higienis</div>
-                <div class="ph-feature-sub">Proses tertutup mengurangi risiko kontaminasi dari lingkungan luar</div>
-              </div>
-            </div>
-            <div class="ph-feature">
-              <div class="ph-feature-icon">
-                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-              </div>
-              <div>
-                <div class="ph-feature-label">Standar Ekspor</div>
-                <div class="ph-feature-sub">Memenuhi standar kualitas internasional untuk pasar global</div>
-              </div>
-            </div>
-          </div>
+          <h3>Teknologi Pirolisis Modern</h3>
+          <p>Tempurung kelapa dikarbonisasi dalam ruang tertutup tanpa oksigen pada suhu tinggi, menghasilkan karbon murni berkualitas tinggi. Serbuk arang kemudian dicampur binder alami dan dicetak menjadi briket padat yang seragam.</p>
         </div>
-        <div class="proses-highlight-visual">
-          <img src="../img/assets/oven-modern.jpg" alt="Oven Modern" />
+
+        <div class="desk-mini-row">
+          <div class="desk-mini">
+            <div class="desk-mini-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+            </div>
+            <h4>100% Alami</h4>
+            <p>Bebas bahan kimia berbahaya, murni dari tempurung kelapa</p>
+          </div>
+          <div class="desk-mini">
+            <div class="desk-mini-icon">
+              <svg viewBox="0 0 24 24"><path d="M2 20h20M5 20V10l7-7 7 7v10"/></svg>
+            </div>
+            <h4>Ramah Lingkungan</h4>
+            <p>Produksi berkelanjutan, mendukung zero-waste kelapa</p>
+          </div>
+          <div class="desk-mini">
+            <div class="desk-mini-icon">
+              <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <h4>Panas Stabil</h4>
+            <p>Nilai kalor tinggi dan pembakaran merata dan konsisten</p>
+          </div>
+          <div class="desk-mini">
+            <div class="desk-mini-icon">
+              <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            </div>
+            <h4>Siap Kirim</h4>
+            <p>Stok tersedia, pengiriman terjamin ke seluruh Indonesia</p>
+          </div>
         </div>
       </div>
+    </div>
+
+    <!-- Langkah Proses -->
+    <div class="proses-steps reveal reveal-d3">
+
+      <div class="proses-step">
+        <div class="ps-num">1</div>
+        <div class="ps-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 8h2a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h-2v4l-4-4H9a1.994 1.994 0 0 1-1.414-.586m0 0L11 14h4a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2v4l.586-.586z"/></svg>
+        </div>
+        <div class="ps-body">
+          <div class="ps-title">Seleksi Bahan Baku</div>
+          <p class="ps-desc">Tempurung kelapa tua dipilih secara ketat untuk kualitas karbonisasi terbaik.</p>
+        </div>
+      </div>
+
+      <div class="ps-arrow">
+        <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </div>
+
+      <div class="proses-step">
+        <div class="ps-num">2</div>
+        <div class="ps-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2c0 0-6 5-6 10a6 6 0 0 0 12 0C18 7 12 2 12 2z"/></svg>
+        </div>
+        <div class="ps-body">
+          <div class="ps-title">Karbonisasi Pirolisis</div>
+          <p class="ps-desc">Dibakar dalam ruang tertutup tanpa oksigen — menghasilkan karbon murni berkualitas tinggi.</p>
+        </div>
+      </div>
+
+      <div class="ps-arrow">
+        <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </div>
+
+      <div class="proses-step">
+        <div class="ps-num">3</div>
+        <div class="ps-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+        </div>
+        <div class="ps-body">
+          <div class="ps-title">Penghalusan &amp; Mixing</div>
+          <p class="ps-desc">Arang digiling halus dan dicampur binder alami berbasis pati untuk ikatan kuat.</p>
+        </div>
+      </div>
+
+      <div class="ps-arrow">
+        <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </div>
+
+      <div class="proses-step">
+        <div class="ps-num">4</div>
+        <div class="ps-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="2" width="8" height="8" rx="1"/><rect x="14" y="2" width="8" height="8" rx="1"/><rect x="2" y="14" width="8" height="8" rx="1"/><rect x="14" y="14" width="8" height="8" rx="1"/></svg>
+        </div>
+        <div class="ps-body">
+          <div class="ps-title">Pencetakan Briket</div>
+          <p class="ps-desc">Dicetak menjadi bentuk kubus atau sarang lebah menggunakan mesin press bertekanan tinggi.</p>
+        </div>
+      </div>
+
+      <div class="ps-arrow">
+        <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </div>
+
+      <div class="proses-step">
+        <div class="ps-num">5</div>
+        <div class="ps-icon">
+          <svg viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        </div>
+        <div class="ps-body">
+          <div class="ps-title">Pengeringan &amp; Kemas</div>
+          <p class="ps-desc">Briket dikeringkan, dikontrol kualitas, lalu dikemas siap kirim ke pelanggan.</p>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1419,49 +1531,45 @@ footer {
           <div class="section-label-line"></div>
           <span>Aplikasi Produk</span>
         </div>
-        <h2 class="section-h2 on-light reveal reveal-d1">Kegunaan <em>Kopra Putih.</em></h2>
+        <h2 class="section-h2 on-light reveal reveal-d1">Kegunaan <em>Briket Kelapa.</em></h2>
       </div>
       <p class="kegunaan-header-right reveal reveal-d2">
-        Kopra putih adalah bahan baku serbaguna yang digunakan di berbagai sektor industri bernilai tinggi — dari pangan hingga kecantikan.
+        Briket kelapa adalah bahan bakar premium serbaguna untuk BBQ, shisha/hookah, industri, dan keperluan rumah tangga.
       </p>
     </div>
 
     <div class="kegunaan-grid">
 
-      <!-- 1. Minyak Kelapa -->
       <div class="kegunaan-card reveal">
         <div class="ku-icon-wrap">
-          <svg viewBox="0 0 24 24"><path d="M10 2v2M14 2v2M10 20v2M14 20v2M4 10h2M18 10h2M4 14h2M18 14h2M12 6a6 6 0 1 0 0 12A6 6 0 0 0 12 6z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h3M16 3h3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-3M12 8v8M8 12h8"/></svg>
         </div>
-        <div class="ku-title">Minyak Kelapa</div>
-        <p class="ku-desc">Bahan utama produksi minyak kelapa berkualitas. Kandungan minyak alami kopra putih yang tinggi menghasilkan minyak kelapa murni, VCO (Virgin Coconut Oil), dan RBD Coconut Oil yang banyak dicari industri global.</p>
+        <div class="ku-title">BBQ &amp; Grill</div>
+        <p class="ku-desc">Panas tinggi dan durasi bakar panjang menjadikan briket kelapa pilihan terbaik untuk BBQ dan grill. Tidak meninggalkan rasa atau aroma asing pada makanan.</p>
       </div>
 
-      <!-- 2. Santan & Makanan -->
       <div class="kegunaan-card reveal reveal-d1">
         <div class="ku-icon-wrap">
           <svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
         </div>
-        <div class="ku-title">Santan &amp; Makanan</div>
-        <p class="ku-desc">Cocok untuk santan, bahan makanan, dan industri kuliner. Kopra putih yang higienis dan bebas bau asap menghasilkan santan berkualitas premium — ideal untuk industri makanan olahan, restoran, dan produk pangan ekspor.</p>
+        <div class="ku-title">Shisha / Hookah</div>
+        <p class="ku-desc">Briket kubus kelapa adalah pilihan utama para pecinta shisha karena pembakarannya bersih, minim abu, dan mempertahankan suhu stabil untuk sesi yang lebih lama.</p>
       </div>
 
-      <!-- 3. Kosmetik & Skincare -->
       <div class="kegunaan-card reveal reveal-d2">
         <div class="ku-icon-wrap">
-          <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
         </div>
-        <div class="ku-title">Kosmetik &amp; Skincare</div>
-        <p class="ku-desc">Bahan alami untuk produk kecantikan dan perawatan kulit. Minyak yang diekstrak dari kopra putih menjadi bahan baku premium sabun, krim, losion, dan produk perawatan kulit alami yang semakin diminati pasar global.</p>
+        <div class="ku-title">Industri</div>
+        <p class="ku-desc">Cocok untuk kebutuhan industri yang memerlukan bahan bakar konsisten dengan nilai kalor tinggi — mulai dari pengolahan logam, keramik, hingga pembangkit energi biomassa.</p>
       </div>
 
-      <!-- 4. Produk Kesehatan -->
       <div class="kegunaan-card reveal reveal-d3">
         <div class="ku-icon-wrap">
-          <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
         </div>
-        <div class="ku-title">Produk Kesehatan</div>
-        <p class="ku-desc">Digunakan untuk suplemen dan produk kesehatan alami. Kandungan asam lemak rantai menengah (MCT) yang tinggi dalam kopra putih menjadikannya bahan baku suplemen kesehatan, minyak MCT, dan produk wellness premium.</p>
+        <div class="ku-title">Rumah Tangga &amp; Camping</div>
+        <p class="ku-desc">Bentuk padat dan ringan memudahkan penyimpanan dan pembawaan — ideal untuk memasak di rumah, warung makan tradisional, maupun kegiatan outdoor dan camping.</p>
       </div>
 
     </div>
@@ -1476,74 +1584,72 @@ footer {
       <div class="spek-left">
         <div class="section-label reveal">
           <div class="section-label-line"></div>
-          <span>Spesifikasi Teknis</span>
+          <span>Data Teknis</span>
         </div>
-        <h2 class="section-h2 reveal reveal-d1">Detail <em>Produk.</em></h2>
-        <p class="spek-sub reveal reveal-d2">Spesifikasi teknis kopra putih Berkah Mandiri yang memenuhi standar kualitas ekspor internasional.</p>
+        <h2 class="section-h2 reveal reveal-d1">Spesifikasi <em>Briket Kelapa.</em></h2>
+        <p class="spek-sub reveal reveal-d2">
+          Data teknis briket batok kelapa premium Berkah Mandiri yang memenuhi standar kualitas ekspor internasional.
+        </p>
 
         <div class="spek-table reveal reveal-d3">
           <div class="spek-row">
-            <div class="spek-key">Nama Produk</div>
-            <div class="spek-val"><strong>Kopra Putih Premium</strong></div>
+            <div class="spek-key">Bahan Baku</div>
+            <div class="spek-val"><strong>Tempurung Kelapa 100%</strong></div>
           </div>
           <div class="spek-row">
             <div class="spek-key">Kadar Air</div>
-            <div class="spek-val"><strong>5–7%</strong></div>
+            <div class="spek-val"><strong>Maks. 8%</strong></div>
           </div>
           <div class="spek-row">
-            <div class="spek-key">Warna</div>
-            <div class="spek-val">Putih bersih alami</div>
+            <div class="spek-key">Kadar Abu</div>
+            <div class="spek-val"><strong>Maks. 3%</strong></div>
           </div>
           <div class="spek-row">
-            <div class="spek-key">Metode Proses</div>
-            <div class="spek-val">Oven modern (bukan asap)</div>
+            <div class="spek-key">Nilai Kalor</div>
+            <div class="spek-val"><strong>≥ 7.000 kkal/kg</strong></div>
           </div>
           <div class="spek-row">
-            <div class="spek-key">Bau</div>
-            <div class="spek-val">Bebas bau asap</div>
+            <div class="spek-key">Karbon Tetap</div>
+            <div class="spek-val"><strong>Min. 75%</strong></div>
           </div>
           <div class="spek-row">
-            <div class="spek-key">Kualitas</div>
-            <div class="spek-val"><strong>Standar Ekspor</strong></div>
+            <div class="spek-key">Durasi Bakar</div>
+            <div class="spek-val"><strong>2–3 Jam</strong></div>
+          </div>
+          <div class="spek-row">
+            <div class="spek-key">Bentuk</div>
+            <div class="spek-val"><strong>Kubus / Sarang Lebah</strong></div>
           </div>
           <div class="spek-row">
             <div class="spek-key">Kemasan</div>
-            <div class="spek-val">Karung / sesuai permintaan</div>
-          </div>
-          <div class="spek-row">
-            <div class="spek-key">Ketersediaan</div>
-            <div class="spek-val">Partai besar &amp; kecil</div>
-          </div>
-          <div class="spek-row">
-            <div class="spek-key">Kontak</div>
-            <div class="spek-val"><strong>Alesha — 0813-888-7073</strong></div>
+            <div class="spek-val"><strong>1 kg / 3 kg / Curah</strong></div>
           </div>
         </div>
       </div>
 
-      <div class="spek-right">
-        <div class="spek-card reveal reveal-d1">
+      <div class="spek-right reveal reveal-d2">
+        <div class="spek-card">
+          <div class="spek-card-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+          </div>
+          <h3>Kualitas Ekspor</h3>
+          <p>Briket kelapa Berkah Mandiri memenuhi standar kualitas ekspor internasional. Setiap batch diproduksi dengan konsistensi tinggi untuk kepercayaan pelanggan global.</p>
+        </div>
+
+        <div class="spek-card">
+          <div class="spek-card-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2c0 0-6 5-6 10a6 6 0 0 0 12 0C18 7 12 2 12 2z"/></svg>
+          </div>
+          <h3>Pembakaran Bersih</h3>
+          <p>Nilai kalor ≥ 7.000 kkal/kg dengan kadar abu rendah memastikan pembakaran efisien, bersih, dan minim residu — ideal untuk shisha, BBQ, dan industri sensitif.</p>
+        </div>
+
+        <div class="spek-card">
           <div class="spek-card-icon">
             <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
           </div>
-          <h3>Siap Supply Partai Besar &amp; Kecil</h3>
-          <p>Kami melayani kebutuhan kopra putih dalam skala besar (kontainer/ton) maupun skala kecil untuk pengusaha dan industri. Hubungi kami untuk diskusi volume dan harga terbaik.</p>
-        </div>
-
-        <div class="spek-card reveal reveal-d2">
-          <div class="spek-card-icon">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-          </div>
-          <h3>Siap untuk Industri &amp; Ekspor</h3>
-          <p>Produk kami memenuhi standar kualitas untuk pasar internasional. Kami berpengalaman dalam mempersiapkan dokumentasi ekspor dan memastikan produk sampai dalam kondisi terbaik ke tangan pembeli.</p>
-        </div>
-
-        <div class="spek-card reveal reveal-d3">
-          <div class="spek-card-icon">
-            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          </div>
-          <h3>Harga Bersaing, Kualitas Terjamin</h3>
-          <p>Kami menawarkan harga yang kompetitif tanpa mengorbankan kualitas. Setiap pengiriman disertai jaminan kualitas produk sesuai spesifikasi yang disepakati.</p>
+          <h3>Siap Supply Partai Besar</h3>
+          <p>Stok selalu tersedia dan siap supply dalam jumlah besar. Tersedia dalam kemasan consumer 1 kg, 3 kg, maupun dalam karung curah untuk kebutuhan industri dan ekspor.</p>
         </div>
       </div>
 
@@ -1639,13 +1745,13 @@ footer {
   <div class="section-wrap">
     <div class="kontak-wrap">
       <div class="kontak-header">
-        <div class="section-label reveal" style="justify-content:center;">
+        <div class="section-label reveal">
           <div class="section-label-line"></div>
           <span>Hubungi Kami</span>
           <div class="section-label-line"></div>
         </div>
-        <h2 class="section-h2 reveal reveal-d1">Siap <em>Supply</em> Kopra Putih.</h2>
-        <p class="reveal reveal-d2">Hubungi Alesha sekarang untuk mendapatkan penawaran terbaik kopra putih premium — siap supply partai besar maupun kecil, untuk industri dan ekspor.</p>
+        <h2 class="section-h2 reveal reveal-d1">Siap <em>Supply Briket Kelapa.</em></h2>
+        <p class="reveal reveal-d2">Hubungi Alesha sekarang untuk mendapatkan penawaran terbaik briket batok kelapa premium — siap supply partai besar maupun kecil, untuk industri dan ekspor.</p>
       </div>
 
       <div class="kontak-panel reveal reveal-d2">
@@ -1685,7 +1791,7 @@ footer {
               Respon Cepat
             </div>
           </div>
-          <a href="https://wa.me/628138887073?text=Halo%20Alesha%2C%20saya%20ingin%20mengetahui%20lebih%20lanjut%20tentang%20Kopra%20Putih%20Premium%20Berkah%20Mandiri." target="_blank" class="btn-wa">
+          <a href="https://wa.me/628138887073?text=Halo%20Alesha%2C%20saya%20ingin%20mengetahui%20lebih%20lanjut%20tentang%20Briket%20Batok%20Kelapa%20Premium%20Berkah%20Mandiri." target="_blank" class="btn-wa">
             <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
             Hubungi Kami Sekarang
           </a>
@@ -1723,9 +1829,9 @@ footer {
     <div>
       <div class="footer-col-title">Produk Kami</div>
       <ul class="footer-links">
-        <li><a href="kopra.html" style="color:var(--brass-lt);">Kopra Putih ✦</a></li>
+        <li><a href="kopra.html">Kopra Putih</a></li>
         <li><a href="arang-batok.html">Arang Batok</a></li>
-        <li><a href="briket-kelapa.html">Briket Kelapa</a></li>
+        <li><a href="briket-kelapa.html" style="color:var(--brass-lt);">Briket Kelapa ✦</a></li>
         <li><a href="cocobristle.html">Cocobristle</a></li>
         <li><a href="cocofiber.html">Cocofiber</a></li>
         <li><a href="cocopeat.html">Cocopeat</a></li>

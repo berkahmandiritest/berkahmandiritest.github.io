@@ -73,6 +73,70 @@ img { max-width: 100%; display: block; }
 #nav-menu { display: flex; align-items: center; gap: 8px; }
 #nav-menu .mobile-nav-cta { display: none; }
 
+#nav-menu li { position: relative; }
+#nav-menu li.has-dropdown > a::after {
+  content: '▾';
+  margin-left: 8px;
+  font-size: .8em;
+  display: inline-block;
+  transform: translateY(1px);
+}
+.nav-dropdown {
+  display: none;
+  position: absolute;
+  top: calc(100%);
+  left: 0;
+  min-width: 220px;
+  padding: 10px 0;
+  background: rgba(11,21,18,.96);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: var(--r-md);
+  box-shadow: 0 20px 40px rgba(0,0,0,.18);
+  z-index: 300;
+}
+.nav-dropdown li + li { margin-top: 0; }
+.nav-dropdown a {
+  display: block;
+  padding: 10px 18px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--g400);
+}
+.nav-dropdown a:hover { color: var(--white); background: rgba(255,255,255,.06); }
+#nav-menu li.has-dropdown:hover > .nav-dropdown { display: block; }
+#nav-menu li.has-dropdown:hover > a { color: var(--white); }
+@media (max-width: 768px) {
+
+  #nav-menu.mobile-open .nav-dropdown {
+    display: none;
+    position: static;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    margin-top: 8px;
+  }
+
+  #nav-menu.mobile-open .has-dropdown.active .nav-dropdown {
+    display: block;
+  }
+
+  #nav-menu.mobile-open .nav-dropdown a {
+    padding-left: 30px;
+  }
+}
+@media (min-width: 769px) {
+  .nav-dropdown {
+    display: none !important;
+  }
+
+  #nav-menu li.has-dropdown:hover > .nav-dropdown {
+    display: block !important;
+  }
+}
+
 .nav-logo { display: flex; align-items: center; gap: 12px; cursor: pointer; }
 .nav-logo-mark {
   width: 36px; height: 36px;
@@ -200,6 +264,7 @@ img { max-width: 100%; display: block; }
 .hero-overline {
   display: inline-flex; align-items: center; gap: 10px;
   margin-bottom: 20px;
+  margin-top: 20px;
 }
 .hero-overline-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--brass-lt); }
 .hero-overline span {
@@ -1269,7 +1334,17 @@ footer {
     <ul>
       <li><a href="../index.html#beranda"         class="nav-link">Beranda</a></li>
       <li><a href="../index.html#pohon-kehidupan" class="nav-link">Tentang Kelapa</a></li>
-      <li><a href="../index.html#produk"          class="nav-link">Produk</a></li>
+      <li class="has-dropdown">
+        <a href="../index.html#produk" class="nav-link">Produk</a>
+        <ul class="nav-dropdown">
+          <li><a href="kopra.html" class="nav-link">Kopra Putih</a></li>
+          <li><a href="arang-batok.html" class="nav-link">Arang Batok</a></li>
+          <li><a href="briket-kelapa.html" class="nav-link">Briket Kelapa</a></li>
+          <li><a href="cocobristle.html" class="nav-link">Cocobristle</a></li>
+          <li><a href="cocofiber.html" class="nav-link">Cocofiber</a></li>
+          <li><a href="cocopeat.html" class="nav-link">Cocopeat</a></li>
+        </ul>
+      </li>
       <li><a href="../index.html#tentang"         class="nav-link">Tentang Kami</a></li>
       <li><a href="#kontak"                        class="nav-link">Kontak</a></li>
     </ul>
@@ -1303,7 +1378,7 @@ footer {
   <div class="hero-inner">
     <div class="hero-overline reveal reveal-d1">
       <div class="hero-overline-dot"></div>
-      <span>Berkah Mandiri — Kualitas Ekspor</span>
+      <span>Berkah Mandiri — Premium Quality</span>
     </div>
 
     <h1 class="hero-h1 reveal reveal-d2">
@@ -1788,7 +1863,7 @@ footer {
       </a>
       <a href="cocobristle.html" class="produk-lain-card">
         <div class="plc-img">
-          <img src="../img/assets/04-cocobristel.jpg" alt="Cocobristle" onerror="this.style.opacity='.2'">
+          <img src="../img/assets/04-cocobristle.jpg" alt="Cocobristle" onerror="this.style.opacity='.2'">
         </div>
         <div class="plc-tag">Sikat &amp; Pembersih</div>
         <div class="plc-title">Cocobristle</div>
@@ -2009,6 +2084,17 @@ document.addEventListener('click', (e) => {
     hamburger.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
   }
+});
+
+// Menu mobile
+document.querySelectorAll('.has-dropdown > a').forEach(menu => {
+  menu.addEventListener('click', function(e) {
+    if (window.innerWidth <= 768) {
+      e.preventDefault();
+      const parent = this.parentElement;
+      parent.classList.toggle('active');
+    }
+  });
 });
 </script>
 </body>
